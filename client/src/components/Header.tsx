@@ -6,7 +6,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Umbrella, Shell, Anchor, Menu } from "lucide-react";
+import { Umbrella, Shell, Anchor, Menu, Map } from "lucide-react";
 import BeachPleaseLogo from "../assets/temp/beach-please-logo-trimmed.png";
 
 export default function Header() {
@@ -23,6 +23,9 @@ export default function Header() {
         <div className="hidden md:flex items-center space-x-6">
           <Link href="/" className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors flex items-center gap-1 font-medium">
             <Umbrella className="h-4 w-4" /> Explore
+          </Link>
+          <Link href="/beaches" className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors flex items-center gap-1 font-medium">
+            <Map className="h-4 w-4" /> All Beaches
           </Link>
           <Link href="#rankings" className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors flex items-center gap-1 font-medium">
             <Anchor className="h-4 w-4" /> Rankings
@@ -50,6 +53,13 @@ export default function Header() {
                 onClick={() => setIsNavOpen(false)}
               >
                 <Umbrella className="h-5 w-5" /> Explore
+              </Link>
+              <Link 
+                href="/beaches" 
+                className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors py-2 flex items-center gap-2"
+                onClick={() => setIsNavOpen(false)}
+              >
+                <Map className="h-5 w-5" /> All Beaches
               </Link>
               <Link 
                 href="#rankings" 
