@@ -72,9 +72,9 @@ export class MemStorage implements IStorage {
       beachData = this.getSampleBeaches();
     }
 
-    // Initialize with random ratings between 1450-1550 to create some initial variety
+    // Initialize all beaches with equal rating of 1500
     beachData.forEach(beach => {
-      const initialRating = Math.floor(1450 + Math.random() * 100);
+      const initialRating = 1500;
       const newBeach: BeachType = {
         id: this.beachIdCounter++,
         ...beach,
