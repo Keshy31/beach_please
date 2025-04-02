@@ -106,10 +106,10 @@ async function updateBeachImages() {
       }));
     }
     
-    // Process a subset of beaches (first 10) to avoid timeouts
+    // Process a smaller subset of beaches (3 at a time) to avoid timeouts
     let successCount = 0;
     let failCount = 0;
-    const beachesToProcess = updatedBeaches.slice(5, 10); // Process beaches 5-10
+    const beachesToProcess = updatedBeaches.slice(35, 38); // Process next batch (beaches 35-38)
     
     for (let i = 0; i < beachesToProcess.length; i++) {
       const beach = beachesToProcess[i];
