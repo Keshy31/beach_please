@@ -1,50 +1,38 @@
 [
   {
+    "name": "Kogel Bay",
+    "province": "Western Cape",
+    "description": "This beach has a lot of wow factor for us! Kogel Bay has one of the most incredible backdrops we\u2019ve ever seen, not to mention a perfect beach from which to view it all. The route along Clarence Drive to get to the beach is spectacular, no matter whic...",
+    "imageUrl": "https://i1.wp.com/www.strayalongtheway.com/wp-content/uploads/2018/01/Kogel-Bay-Beach.jpg"
+  },
+  {
     "name": "Scarborough",
     "province": "Western Cape",
-    "description": "Click here to check out available accommodation in Scarborough.",
-    "imageUrl": null
+    "description": "One of the more remote beaches on Cape Town\u2018s Atlantic seaboard, Scarborough is the last stop south before the Cape Point Nature Reserve on the Cape Peninsula. For this reason, its beaches are usually very quiet and offer the perfect escape from the ...",
+    "imageUrl": "https://i1.wp.com/www.strayalongtheway.com/wp-content/uploads/2018/01/Scarbourgh.jpg"
   },
   {
     "name": "Long Beach",
     "province": "Western Cape",
     "description": "Long Beach at Kommetjie has to be one of the prettiest of the Western Cape\u2018s beaches, and is one of the most perfect settings for that dream beach lifestyle. Here a white sand beach edges the blue kelp-fringed water, beach paths run down sandy tracks...",
-    "imageUrl": null
-  },
-  {
-    "name": "Kommetjie",
-    "province": "Western Cape",
-    "description": "Click here to check out available accommodation in Kommetjie.",
-    "imageUrl": null
+    "imageUrl": "https://i1.wp.com/www.strayalongtheway.com/wp-content/uploads/2018/01/Long-Beach.jpg"
   },
   {
     "name": "Noordhoek",
     "province": "Western Cape",
-    "description": "Click here to check out available accommodation in Noordhoek.",
-    "imageUrl": null
-  },
-  {
-    "name": "Yzerfontein",
-    "province": "Western Cape",
-    "description": "Click here to check out available accommodation in Yzerfontein.",
-    "imageUrl": null
-  },
-  {
-    "name": "Sixteen Mile Beach",
-    "province": "Western Cape",
-    "description": "Yzerfontein, just 90 km up the West Coast from Cape Town, is a small harbour town that is home to one of South Africa\u2019s longest uninterrupted beaches. Sixteen Mile Beach stretches on for, well we\u2019re guessing, 16 miles?! Another epic white sand beach ...",
-    "imageUrl": null
+    "description": "The beaches at Noordhoek have a wonderful wild quality about them, even though they are smack bang in the middle of suburbia. We found Noordhoek great for long walks on the wide sandy stretches, and the perfect destination to enjoy that refreshing fe...",
+    "imageUrl": "https://i1.wp.com/www.strayalongtheway.com/wp-content/uploads/2018/01/Noordhoek.jpg"
   },
   {
     "name": "Llandudno",
     "province": "Western Cape",
-    "description": "Haha \u2013 I know that Umzumbe, Trafalgar and Llandudno are but I\u2019m not sure about the others. Most of the beaches on this list wouldn\u2019t qualify for Blue Flag status in any case, but that\u2019s mainly because of their remote location and therefore lack of ab...",
-    "imageUrl": null
+    "description": "You\u2019d be hard-pressed to find a more beautiful setting for a sunset than Llundudno. The amphitheatre of boulders and mountains that surround the beach light up in the evening glow, and provide a sheltered corner even if the wind is blowing.",
+    "imageUrl": "https://www.strayalongtheway.com/wp-content/uploads/2018/01/Llandudno.jpg"
   },
   {
-    "name": "Kogel Bay",
+    "name": "Yzerfontein",
     "province": "Western Cape",
-    "description": "Click here to check out available accommodation near Kogel Bay.",
-    "imageUrl": null
+    "description": "Yzerfontein, just 90 km up the West Coast from Cape Town, is a small harbour town that is home to one of South Africa\u2019s longest uninterrupted beaches. Sixteen Mile Beach stretches on for, well we\u2019re guessing, 16 miles?! Another epic white sand beach ...",
+    "imageUrl": "https://i0.wp.com/www.strayalongtheway.com/wp-content/uploads/2018/01/Yzerfontein.jpg"
   }
 ]
