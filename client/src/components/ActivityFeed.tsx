@@ -19,6 +19,8 @@ interface EnhancedVote {
   loserRatingChange?: number;
   winnerPreviousRating?: number;
   loserPreviousRating?: number;
+  winnerImageUrl?: string;
+  loserImageUrl?: string;
 }
 
 export default function ActivityFeed() {
@@ -104,6 +106,11 @@ export default function ActivityFeed() {
                                 <Badge variant="default" className="bg-[hsl(var(--color-accent))] hover:bg-[hsl(var(--color-accent))] mr-2">
                                   Winner
                                 </Badge>
+                                <img 
+                                  src={vote.winnerImageUrl} 
+                                  alt={vote.winnerName}
+                                  className="w-6 h-6 rounded-full object-cover mr-2"
+                                />
                                 <span className="font-medium text-gray-900">{vote.winnerName}</span>
                                 <span className="text-gray-500 text-xs ml-2">({vote.winnerProvince})</span>
                                 
@@ -119,6 +126,11 @@ export default function ActivityFeed() {
                               
                               <div className="flex items-center">
                                 <span className="text-xs font-medium text-gray-500 mr-2">vs</span>
+                                <img 
+                                  src={vote.loserImageUrl} 
+                                  alt={vote.loserName}
+                                  className="w-6 h-6 rounded-full object-cover mr-2"
+                                />
                                 <span className="font-medium text-gray-500">{vote.loserName}</span>
                                 <span className="text-gray-400 text-xs ml-2">({vote.loserProvince})</span>
                                 
