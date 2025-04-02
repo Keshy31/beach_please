@@ -85,7 +85,7 @@ export default function RankingsTable({ beaches, isLoading }: RankingsTableProps
                     <TableCell><Skeleton className="h-5 w-5" /></TableCell>
                     <TableCell>
                       <div className="flex items-center space-x-3">
-                        <Skeleton className="h-10 w-10 rounded-full" />
+                        <Skeleton className="h-16 w-16 rounded-md" />
                         <div className="space-y-1">
                           <Skeleton className="h-4 w-24" />
                           <Skeleton className="h-3 w-16" />
@@ -127,9 +127,9 @@ export default function RankingsTable({ beaches, isLoading }: RankingsTableProps
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center">
-                          <div className="flex-shrink-0 h-10 w-10 rounded-md overflow-hidden border border-gray-100">
+                          <div className="flex-shrink-0 h-16 w-16 rounded-md overflow-hidden border-2 border-[#20B2AA]/20">
                             <img 
-                              className="h-10 w-10 object-cover" 
+                              className="h-16 w-16 object-cover" 
                               src={beach.imageUrl} 
                               alt={beach.name}
                             />

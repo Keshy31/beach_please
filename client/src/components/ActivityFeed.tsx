@@ -91,10 +91,10 @@ export default function ActivityFeed() {
                 ) : votes && votes.length > 0 ? (
                   // Actual data
                   votes.map((vote, index) => (
-                    <li key={vote.id} className="mb-6">
-                      <div className="relative bg-gradient-to-r from-slate-50 to-white rounded-lg p-4 shadow-sm border border-slate-100">
-                        <div className="flex items-center justify-between mb-2">
-                          <Badge variant="default" className="bg-[#20B2AA] hover:bg-[#20B2AA]">
+                    <li key={vote.id} className="mb-3">
+                      <div className="relative bg-gradient-to-r from-slate-50 to-white rounded-lg p-3 shadow-sm border border-slate-100">
+                        <div className="flex items-center justify-between mb-1">
+                          <Badge variant="default" className="bg-[#20B2AA] hover:bg-[#20B2AA] py-0 px-2 h-5 text-xs">
                             Winner
                           </Badge>
                           <span className="text-xs text-gray-400">
@@ -102,8 +102,8 @@ export default function ActivityFeed() {
                           </span>
                         </div>
                         
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="relative w-16 h-16 overflow-hidden rounded-md border-2 border-[#20B2AA]">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="relative w-10 h-10 overflow-hidden rounded-md border-2 border-[#20B2AA]">
                             {vote.winnerImageUrl ? (
                               <img 
                                 src={vote.winnerImageUrl} 
@@ -112,29 +112,29 @@ export default function ActivityFeed() {
                               />
                             ) : (
                               <div className="w-full h-full bg-slate-200 flex items-center justify-center">
-                                <Waves className="h-8 w-8 text-slate-400" />
+                                <Waves className="h-5 w-5 text-slate-400" />
                               </div>
                             )}
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-slate-800">{vote.winnerName}</h4>
-                            <p className="text-sm text-slate-500">{vote.winnerProvince}</p>
+                            <h4 className="font-bold text-sm text-slate-800">{vote.winnerName}</h4>
+                            <p className="text-xs text-slate-500">{vote.winnerProvince}</p>
                           </div>
                           {vote.winnerRatingChange && (
-                            <div className="flex items-center text-emerald-600 font-semibold">
-                              <ArrowUp className="h-4 w-4 mr-1" />
+                            <div className="flex items-center text-emerald-600 font-semibold text-sm">
+                              <ArrowUp className="h-3 w-3 mr-1" />
                               +{vote.winnerRatingChange}
                             </div>
                           )}
                         </div>
                         
-                        <div className="relative flex items-center justify-center my-2">
+                        <div className="relative flex items-center justify-center my-1">
                           <div className="absolute w-full border-t border-gray-200"></div>
-                          <div className="relative bg-white px-3 text-sm text-gray-500">vs</div>
+                          <div className="relative bg-white px-2 text-xs text-gray-500">vs</div>
                         </div>
                         
                         <div className="flex items-center gap-2">
-                          <div className="relative w-16 h-16 overflow-hidden rounded-md border-2 border-slate-300">
+                          <div className="relative w-10 h-10 overflow-hidden rounded-md border-2 border-slate-300">
                             {vote.loserImageUrl ? (
                               <img 
                                 src={vote.loserImageUrl} 
@@ -143,17 +143,17 @@ export default function ActivityFeed() {
                               />
                             ) : (
                               <div className="w-full h-full bg-slate-200 flex items-center justify-center">
-                                <Waves className="h-8 w-8 text-slate-400" />
+                                <Waves className="h-5 w-5 text-slate-400" />
                               </div>
                             )}
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-medium text-slate-600">{vote.loserName}</h4>
-                            <p className="text-sm text-slate-400">{vote.loserProvince}</p>
+                            <h4 className="font-medium text-sm text-slate-600">{vote.loserName}</h4>
+                            <p className="text-xs text-slate-400">{vote.loserProvince}</p>
                           </div>
                           {vote.loserRatingChange && (
-                            <div className="flex items-center text-red-500 font-semibold">
-                              <ArrowDown className="h-4 w-4 mr-1" />
+                            <div className="flex items-center text-red-500 font-semibold text-sm">
+                              <ArrowDown className="h-3 w-3 mr-1" />
                               {vote.loserRatingChange}
                             </div>
                           )}
