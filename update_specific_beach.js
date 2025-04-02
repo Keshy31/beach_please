@@ -14,6 +14,8 @@ async function fetchBeachImage(beachName, province) {
       query = `${beachName} Port Edward South Africa coastal`;
     } else if (beachName === 'Mtwalume Beach') {
       query = `${beachName} south coast KZN South Africa shoreline`;
+    } else if (beachName === 'Port Shepstone Beach') {
+      query = `${beachName} KwaZulu-Natal South Africa oceanview`;
     } else {
       query = `${beachName} beach ${province} South Africa coastal view`;
     }
@@ -53,6 +55,14 @@ async function fetchBeachImage(beachName, province) {
       return data.items[1].link;
     } else if (beachName === 'Mtwalume Beach' && data.items.length > 1) {
       return data.items[1].link; // The second result is an actual aerial photo
+    } else if (beachName === 'Port Shepstone Beach' && data.items.length > 1) {
+      // We'll review the results for Port Shepstone Beach and select the best one
+      // Check if we have enough results
+      if (data.items.length >= 3) {
+        return data.items[2].link; // Try the third result first
+      } else {
+        return data.items[0].link; 
+      }
     }
     
     // For other beaches, return the first result
@@ -98,5 +108,5 @@ async function updateBeachImage(beachName, province) {
   }
 }
 
-// Execute for Mtwalume Beach
-updateBeachImage('Mtwalume Beach', 'KwaZulu-Natal');
+// Execute for Port Shepstone Beach
+updateBeachImage('Port Shepstone Beach', 'KwaZulu-Natal');
