@@ -17,7 +17,8 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 // Function to fetch image for a specific beach
 async function fetchBeachImage(beachName, province) {
   try {
-    const query = `${beachName} beach ${province} South Africa`;
+    // Use a more specific query to get actual beach views, not hotels or facilities
+    const query = `${beachName} beach shoreline ocean view ${province} South Africa`;
     console.log(`Searching for: ${query}`);
     
     const response = await axios.get('https://www.googleapis.com/customsearch/v1', {
@@ -26,14 +27,28 @@ async function fetchBeachImage(beachName, province) {
         cx: GOOGLE_SEARCH_ENGINE_ID,
         q: query,
         searchType: 'image',
-        num: 1, // Get just the top result
+        num: 3, // Get top 3 results to choose from
         imgSize: 'xlarge', // Prefer large images
-        safe: 'active'
+        safe: 'active',
+        // Additional filtering to target beach images
+        rights: 'cc_publicdomain,cc_attribute,cc_sharealike',
+        fileType: 'jpg,png',
+        imgType: 'photo'
       }
     });
     
     if (response.data.items && response.data.items.length > 0) {
-      const imageUrl = response.data.items[0].link;
+      // Try to find an image with specific beach-related keywords in the title or snippet
+      const beachKeywords = ['beach', 'coast', 'shore', 'ocean', 'sea', 'sand', 'waves'];
+      const beachImage = response.data.items.find(item => 
+        beachKeywords.some(keyword => 
+          (item.title && item.title.toLowerCase().includes(keyword)) || 
+          (item.snippet && item.snippet.toLowerCase().includes(keyword))
+        )
+      );
+      
+      // Use the filtered image or default to the first one
+      const imageUrl = beachImage ? beachImage.link : response.data.items[0].link;
       console.log(`Found image for ${beachName}: ${imageUrl}`);
       return imageUrl;
     } else {
@@ -44,11 +59,13 @@ async function fetchBeachImage(beachName, province) {
         params: {
           key: GOOGLE_API_KEY,
           cx: GOOGLE_SEARCH_ENGINE_ID,
-          q: `${beachName} beach South Africa`,
+          q: `${beachName} beach coastline South Africa scenic`,
           searchType: 'image',
-          num: 1,
+          num: 2,
           imgSize: 'xlarge',
-          safe: 'active'
+          safe: 'active',
+          fileType: 'jpg,png',
+          imgType: 'photo'
         }
       });
       
@@ -109,7 +126,7 @@ async function updateBeachImages() {
     // Process a smaller subset of beaches (3 at a time) to avoid timeouts
     let successCount = 0;
     let failCount = 0;
-    const beachesToProcess = updatedBeaches.slice(35, 38); // Process next batch (beaches 35-38)
+    const beachesToProcess = updatedBeaches.slice(38, 41); // Process next batch (beaches 38-41)
     
     for (let i = 0; i < beachesToProcess.length; i++) {
       const beach = beachesToProcess[i];
