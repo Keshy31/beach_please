@@ -99,7 +99,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const limit = parseInt(req.query.limit as string) || 10;
       const recentVotes = await storage.getRecentVotes(limit);
       
-      // Enhance vote data with beach names and rating changes
+      // Enhance vote data with beach names, images, and rating changes
       const enhancedVotes = await Promise.all(
         recentVotes.map(async (vote) => {
           const winner = await storage.getBeachById(vote.winnerBeachId);
@@ -111,6 +111,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
             winnerProvince: winner?.province || "Unknown Province",
             loserName: loser?.name || "Unknown Beach",
             loserProvince: loser?.province || "Unknown Province",
+            winnerImageUrl: winner?.imageUrl || "",
+            loserImageUrl: loser?.imageUrl || "",
           };
         })
       );
