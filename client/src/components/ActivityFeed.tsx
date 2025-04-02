@@ -111,7 +111,7 @@ export default function ActivityFeed() {
                                   alt={vote.winnerName}
                                   className="w-6 h-6 rounded-full object-cover mr-2"
                                 />
-                                <span className="font-medium text-gray-900">{vote.winnerName}</span>
+                                <span className="font-medium text-gray-900">{vote.winnerName.replace(/San San/, 'San')}</span>
                                 <span className="text-gray-500 text-xs ml-2">({vote.winnerProvince})</span>
                                 
                                 {vote.winnerRatingChange && (
