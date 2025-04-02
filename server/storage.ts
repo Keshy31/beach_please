@@ -1,4 +1,6 @@
 import { Beach, InsertBeach, Beach as BeachType, Vote, InsertVote } from "@shared/schema";
+import * as fs from 'fs';
+import * as path from 'path';
 
 export interface IStorage {
   // Beach operations
@@ -29,12 +31,50 @@ export class MemStorage implements IStorage {
     this.beachIdCounter = 1;
     this.voteIdCounter = 1;
     
-    // Initialize with sample beaches
+    // Initialize with beaches from our extracted data
     this.initializeBeaches();
   }
 
   private initializeBeaches() {
-    const sampleBeaches: InsertBeach[] = [
+    let beachData: InsertBeach[] = [];
+    
+    try {
+      // Try to load from extracted_data/beaches_enriched.json first
+      const filePath = path.join(process.cwd(), 'extracted_data', 'beaches_enriched.json');
+      if (fs.existsSync(filePath)) {
+        const jsonData = fs.readFileSync(filePath, 'utf-8');
+        beachData = JSON.parse(jsonData);
+        console.log(`Loaded ${beachData.length} beaches from beaches_enriched.json`);
+      } else {
+        // Fallback to sample data if the file doesn't exist
+        console.log('Beach data file not found, using sample beaches');
+        beachData = this.getSampleBeaches();
+      }
+    } catch (error) {
+      console.error('Error loading beach data:', error);
+      // Fallback to sample data if there's an error
+      beachData = this.getSampleBeaches();
+    }
+
+    // Initialize with random ratings between 1450-1550 to create some initial variety
+    beachData.forEach(beach => {
+      const initialRating = Math.floor(1450 + Math.random() * 100);
+      const newBeach: BeachType = {
+        id: this.beachIdCounter++,
+        ...beach,
+        rating: initialRating,
+        previousRating: initialRating,
+        previousRank: 0 // Will be updated on first ranking calculation
+      };
+      this.beaches.set(newBeach.id, newBeach);
+    });
+    
+    // Set initial rankings
+    this.updateRankings();
+  }
+  
+  private getSampleBeaches(): InsertBeach[] {
+    return [
       {
         name: "Clifton 4th Beach",
         location: "Cape Town",
@@ -120,22 +160,6 @@ export class MemStorage implements IStorage {
         imageUrl: "https://images.unsplash.com/photo-1520454974749-611b7248ffdb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800&q=80",
       }
     ];
-
-    // Initialize with random ratings between 1450-1550 to create some initial variety
-    sampleBeaches.forEach(beach => {
-      const initialRating = Math.floor(1450 + Math.random() * 100);
-      const newBeach: BeachType = {
-        id: this.beachIdCounter++,
-        ...beach,
-        rating: initialRating,
-        previousRating: initialRating,
-        previousRank: 0 // Will be updated on first ranking calculation
-      };
-      this.beaches.set(newBeach.id, newBeach);
-    });
-    
-    // Set initial rankings
-    this.updateRankings();
   }
 
   async getAllBeaches(): Promise<BeachType[]> {
