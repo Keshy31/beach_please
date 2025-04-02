@@ -64,16 +64,13 @@ export default function BeachCard({ beach, onVote, isVoting }: BeachCardProps) {
       <CardContent className="p-5 bg-gradient-to-br from-white to-[hsl(var(--color-secondary))]/10">
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="font-display font-bold text-xl text-[hsl(var(--color-text))]">{beach.name}</h3>
+            <Link href={`/beach/${beach.id}`} className="inline-block">
+              <h3 className="font-display font-bold text-xl text-[hsl(var(--color-text))] hover:text-[hsl(var(--color-primary))] transition-colors duration-200">{beach.name}</h3>
+            </Link>
             <p className="text-sm flex items-center text-gray-600 mb-3">
               <MapPin className="h-3.5 w-3.5 mr-1 text-[hsl(var(--color-primary))]" /> {beach.province}
             </p>
           </div>
-          <Link href={`/beach/${beach.id}`}>
-            <Button variant="outline" size="sm" className="text-[hsl(var(--color-primary))] hover:text-[hsl(var(--color-primary))-darker]">
-              <Info className="h-3.5 w-3.5 mr-1" /> Details
-            </Button>
-          </Link>
         </div>
         <p className="text-sm mb-4 line-clamp-3 text-[hsl(var(--color-text))/80]">{beach.description}</p>
         

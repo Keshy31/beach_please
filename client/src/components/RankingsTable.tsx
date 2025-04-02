@@ -138,18 +138,16 @@ export default function RankingsTable({ beaches, isLoading }: RankingsTableProps
                               />
                             </div>
                             <div className="ml-4">
-                              <div className="text-sm font-medium text-[hsl(var(--color-text))]">{beach.name}</div>
+                              <Link href={`/beach/${beach.id}`}>
+                                <div className="text-sm font-medium text-[hsl(var(--color-text))] hover:text-[hsl(var(--color-primary))] transition-colors duration-200">{beach.name}</div>
+                              </Link>
                               <div className="text-xs text-gray-500 flex items-center">
                                 <MapPin className="h-3 w-3 mr-1 text-[hsl(var(--color-primary))]" />
                                 {beach.province}
                               </div>
                             </div>
                           </div>
-                          <Link href={`/beach/${beach.id}`}>
-                            <Button variant="ghost" size="sm" className="text-[hsl(var(--color-primary))]">
-                              <Info className="h-3 w-3" />
-                            </Button>
-                          </Link>
+
                         </div>
                       </TableCell>
                       <TableCell className="text-right font-mono font-medium text-[hsl(var(--color-text))]">

@@ -4,6 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Trophy, ArrowUp, ArrowDown, Waves } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "wouter";
 
 // Extended vote type with beach names and rating changes
 interface EnhancedVote {
@@ -117,7 +118,9 @@ export default function ActivityFeed() {
                             )}
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-sm text-slate-800">{vote.winnerName}</h4>
+                            <Link href={`/beach/${vote.winnerBeachId}`}>
+                              <h4 className="font-bold text-sm text-slate-800 hover:text-[hsl(var(--color-primary))] transition-colors duration-200">{vote.winnerName}</h4>
+                            </Link>
                             <p className="text-xs text-slate-500">{vote.winnerProvince}</p>
                           </div>
                           {vote.winnerRatingChange && (
@@ -148,7 +151,9 @@ export default function ActivityFeed() {
                             )}
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-medium text-sm text-slate-600">{vote.loserName}</h4>
+                            <Link href={`/beach/${vote.loserBeachId}`}>
+                              <h4 className="font-medium text-sm text-slate-600 hover:text-[hsl(var(--color-primary))] transition-colors duration-200">{vote.loserName}</h4>
+                            </Link>
                             <p className="text-xs text-slate-400">{vote.loserProvince}</p>
                           </div>
                           {vote.loserRatingChange && (
