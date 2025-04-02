@@ -11,3 +11,13 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
+/* Beach and ocean theme colors */
+:root {
+  --color-sand: 48, 97%, 88%;
+  --color-ocean-light: 187, 85%, 73%;
+  --color-ocean: 187, 85%, 53%;
+  --color-ocean-dark: 200, 85%, 33%;
+  --color-coral: 4, 85%, 63%;
+  --color-seafoam: 160, 85%, 83%;
+}
