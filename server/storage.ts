@@ -39,16 +39,24 @@ export class MemStorage implements IStorage {
     let beachData: InsertBeach[] = [];
     
     try {
-      // Try to load from extracted_data/beaches_enriched.json first
-      const filePath = path.join(process.cwd(), 'extracted_data', 'beaches_enriched.json');
+      // Try to load from extracted_data/beaches_with_better_images.json first
+      const filePath = path.join(process.cwd(), 'extracted_data', 'beaches_with_better_images.json');
       if (fs.existsSync(filePath)) {
         const jsonData = fs.readFileSync(filePath, 'utf-8');
         beachData = JSON.parse(jsonData);
-        console.log(`Loaded ${beachData.length} beaches from beaches_enriched.json`);
+        console.log(`Loaded ${beachData.length} beaches from beaches_with_better_images.json`);
       } else {
-        // Fallback to sample data if the file doesn't exist
-        console.log('Beach data file not found, using sample beaches');
-        beachData = this.getSampleBeaches();
+        // Fallback to enriched data if the better images file doesn't exist
+        const fallbackPath = path.join(process.cwd(), 'extracted_data', 'beaches_enriched.json');
+        if (fs.existsSync(fallbackPath)) {
+          const jsonData = fs.readFileSync(fallbackPath, 'utf-8');
+          beachData = JSON.parse(jsonData);
+          console.log(`Loaded ${beachData.length} beaches from beaches_enriched.json`);
+        } else {
+          // Fallback to sample data if no beach data files exist
+          console.log('Beach data files not found, using sample beaches');
+          beachData = this.getSampleBeaches();
+        }
       }
     } catch (error) {
       console.error('Error loading beach data:', error);
@@ -220,7 +228,9 @@ export class MemStorage implements IStorage {
     // Create new vote record
     const newVote: Vote = {
       id: this.voteIdCounter++,
-      ...vote,
+      winnerBeachId: vote.winnerBeachId,
+      loserBeachId: vote.loserBeachId,
+      voterName: vote.voterName || 'Anonymous',
       createdAt: new Date()
     };
     
