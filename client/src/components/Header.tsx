@@ -7,7 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Umbrella, Shell, Anchor, Menu } from "lucide-react";
-import BeachPleaseLogo from "../assets/beach-please-logo.png";
+import BeachPleaseLogo from "../assets/temp/beach-please-logo-trimmed.png";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -16,7 +16,7 @@ export default function Header() {
     <header className="bg-[#f5efdc] shadow-md sticky top-0 z-10">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <img src={BeachPleaseLogo} alt="Beach Please" className="h-12" />
+          <img src={BeachPleaseLogo} alt="Beach Please" className="h-16" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -41,7 +41,7 @@ export default function Header() {
           </SheetTrigger>
           <SheetContent className="bg-[#f5efdc]">
             <div className="flex justify-start pt-6 pl-2">
-              <img src={BeachPleaseLogo} alt="Beach Please" className="h-10" />
+              <img src={BeachPleaseLogo} alt="Beach Please" className="h-14" />
             </div>
             <nav className="flex flex-col space-y-4 mt-8">
               <Link 
