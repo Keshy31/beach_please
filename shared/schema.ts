@@ -29,11 +29,19 @@ export const votes = pgTable("votes", {
   loserBeachId: integer("loser_beach_id").notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
   voterName: text("voter_name").default("Anonymous"),
+  winnerRatingChange: integer("winner_rating_change"),
+  loserRatingChange: integer("loser_rating_change"),
+  winnerPreviousRating: integer("winner_previous_rating"),
+  loserPreviousRating: integer("loser_previous_rating"),
 });
 
 export const insertVoteSchema = createInsertSchema(votes).omit({
   id: true,
-  createdAt: true
+  createdAt: true,
+  winnerRatingChange: true,
+  loserRatingChange: true,
+  winnerPreviousRating: true,
+  loserPreviousRating: true
 });
 
 // Types

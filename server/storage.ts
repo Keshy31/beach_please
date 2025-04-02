@@ -233,32 +233,46 @@ export class MemStorage implements IStorage {
       throw new Error("Invalid beach IDs in vote");
     }
     
-    // Create new vote record
-    const newVote: Vote = {
-      id: this.voteIdCounter++,
-      winnerBeachId: vote.winnerBeachId,
-      loserBeachId: vote.loserBeachId,
-      voterName: vote.voterName || 'Anonymous',
-      createdAt: new Date()
-    };
-    
-    this.votes.set(newVote.id, newVote);
-    
     // Recalculate ratings using ELO algorithm
     // K-factor of 32 is commonly used for ELO systems
     const K = 32;
+    
+    // Store previous ratings
+    const winnerPreviousRating = winnerBeach.rating;
+    const loserPreviousRating = loserBeach.rating;
     
     // Calculate expected outcomes
     const expectedWinner = 1 / (1 + Math.pow(10, (loserBeach.rating - winnerBeach.rating) / 400));
     const expectedLoser = 1 / (1 + Math.pow(10, (winnerBeach.rating - loserBeach.rating) / 400));
     
-    // Store previous ratings
-    winnerBeach.previousRating = winnerBeach.rating;
-    loserBeach.previousRating = loserBeach.rating;
-    
     // Calculate new ratings
-    winnerBeach.rating = Math.round(winnerBeach.rating + K * (1 - expectedWinner));
-    loserBeach.rating = Math.round(loserBeach.rating + K * (0 - expectedLoser));
+    const newWinnerRating = Math.round(winnerBeach.rating + K * (1 - expectedWinner));
+    const newLoserRating = Math.round(loserBeach.rating + K * (0 - expectedLoser));
+    
+    // Calculate rating changes
+    const winnerRatingChange = newWinnerRating - winnerPreviousRating;
+    const loserRatingChange = newLoserRating - loserPreviousRating;
+    
+    // Create new vote record with rating changes
+    const newVote: Vote = {
+      id: this.voteIdCounter++,
+      winnerBeachId: vote.winnerBeachId,
+      loserBeachId: vote.loserBeachId,
+      voterName: vote.voterName || 'Anonymous',
+      createdAt: new Date(),
+      winnerRatingChange: winnerRatingChange,
+      loserRatingChange: loserRatingChange,
+      winnerPreviousRating: winnerPreviousRating,
+      loserPreviousRating: loserPreviousRating
+    };
+    
+    this.votes.set(newVote.id, newVote);
+    
+    // Update beach ratings
+    winnerBeach.previousRating = winnerPreviousRating;
+    loserBeach.previousRating = loserPreviousRating;
+    winnerBeach.rating = newWinnerRating;
+    loserBeach.rating = newLoserRating;
     
     // Update beaches
     await this.updateBeach(winnerBeach);
