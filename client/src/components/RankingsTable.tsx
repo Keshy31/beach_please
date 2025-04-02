@@ -4,7 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Beach } from "@shared/schema";
-import { Trophy, ArrowUp, ArrowDown, Minus, ListFilter, MapPin } from "lucide-react";
+import { Trophy, ArrowUp, ArrowDown, Minus, ListFilter, MapPin, Info } from "lucide-react";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 
 interface RankingsTableProps {
   beaches: Beach[];
@@ -126,21 +128,28 @@ export default function RankingsTable({ beaches, isLoading }: RankingsTableProps
                         )}
                       </TableCell>
                       <TableCell>
-                        <div className="flex items-center">
-                          <div className="flex-shrink-0 h-16 w-16 rounded-md overflow-hidden border-2 border-[#20B2AA]/20">
-                            <img 
-                              className="h-16 w-16 object-cover" 
-                              src={beach.imageUrl} 
-                              alt={beach.name}
-                            />
-                          </div>
-                          <div className="ml-4">
-                            <div className="text-sm font-medium text-[hsl(var(--color-text))]">{beach.name}</div>
-                            <div className="text-xs text-gray-500 flex items-center">
-                              <MapPin className="h-3 w-3 mr-1 text-[hsl(var(--color-primary))]" />
-                              {beach.province}
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div className="flex-shrink-0 h-16 w-16 rounded-md overflow-hidden border-2 border-[#20B2AA]/20">
+                              <img 
+                                className="h-16 w-16 object-cover" 
+                                src={beach.imageUrl} 
+                                alt={beach.name}
+                              />
+                            </div>
+                            <div className="ml-4">
+                              <div className="text-sm font-medium text-[hsl(var(--color-text))]">{beach.name}</div>
+                              <div className="text-xs text-gray-500 flex items-center">
+                                <MapPin className="h-3 w-3 mr-1 text-[hsl(var(--color-primary))]" />
+                                {beach.province}
+                              </div>
                             </div>
                           </div>
+                          <Link href={`/beach/${beach.id}`}>
+                            <Button variant="ghost" size="sm" className="text-[hsl(var(--color-primary))]">
+                              <Info className="h-3 w-3" />
+                            </Button>
+                          </Link>
                         </div>
                       </TableCell>
                       <TableCell className="text-right font-mono font-medium text-[hsl(var(--color-text))]">
@@ -158,9 +167,9 @@ export default function RankingsTable({ beaches, isLoading }: RankingsTableProps
         </ScrollArea>
       </div>
       <CardContent className="p-4 border-t border-gray-100 bg-[hsl(var(--color-secondary))]/5 text-right">
-        <a href="#" className="text-[hsl(var(--color-primary))] hover:text-[hsl(var(--color-primary))]/80 font-medium inline-flex items-center">
+        <Link href="/beaches" className="text-[hsl(var(--color-primary))] hover:text-[hsl(var(--color-primary))]/80 font-medium inline-flex items-center">
           View all beaches <ArrowUp className="h-4 w-4 ml-1 transform rotate-45" />
-        </a>
+        </Link>
       </CardContent>
     </Card>
   );

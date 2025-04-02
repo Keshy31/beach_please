@@ -64,7 +64,14 @@ export class MemStorage implements IStorage {
         ...beach,
         rating: initialRating,
         previousRating: initialRating,
-        previousRank: 0 // Will be updated on first ranking calculation
+        previousRank: 0, // Will be updated on first ranking calculation
+        // Initialize beach features with default values
+        isSwimming: 0,
+        isSurfing: 0,
+        isBlueFlag: 0,
+        isFishing: 0,
+        hasLifeguards: 0,
+        hasFacilities: 0
       };
       this.beaches.set(newBeach.id, newBeach);
     });
@@ -79,8 +86,14 @@ export class MemStorage implements IStorage {
         name: "Clifton 4th Beach",
         location: "Cape Town",
         province: "Western Cape",
-        description: "One of Cape Town's most fashionable beaches, known for crystal-clear water, white sand, and spectacular mountain views.",
+        description: "One of Cape Town's most fashionable beaches, known for crystal-clear water, white sand, and spectacular mountain views. Perfect for sunbathing and swimming, with stunning scenery of the Twelve Apostles mountain range.",
         imageUrl: "https://images.unsplash.com/photo-1599942237521-37383b96a0b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800&q=80",
+        isSwimming: 1,
+        isSurfing: 2,
+        isBlueFlag: 1,
+        isFishing: 2,
+        hasLifeguards: 1,
+        hasFacilities: 1
       },
       {
         name: "Camps Bay Beach",
@@ -135,8 +148,14 @@ export class MemStorage implements IStorage {
         name: "Jeffreys Bay",
         location: "Jeffreys Bay",
         province: "Eastern Cape",
-        description: "World-renowned for its perfect waves, J-Bay is a surfer's paradise and host to international surfing competitions.",
+        description: "World-renowned for its perfect waves, J-Bay is a surfer's paradise and host to international surfing competitions. Known as one of the best right-hand point breaks in the world, it attracts surfers from around the globe to its legendary Supertubes section.",
         imageUrl: "https://images.unsplash.com/photo-1526431307837-e5b06f387aac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800&q=80",
+        isSwimming: 1,
+        isSurfing: 1,
+        isBlueFlag: 0,
+        isFishing: 1,
+        hasLifeguards: 1,
+        hasFacilities: 1
       },
       {
         name: "Muizenberg Beach",
@@ -196,7 +215,14 @@ export class MemStorage implements IStorage {
       ...beach,
       rating: 1500,
       previousRating: 1500,
-      previousRank: 0
+      previousRank: 0,
+      // Initialize beach features with default values
+      isSwimming: 0,
+      isSurfing: 0,
+      isBlueFlag: 0,
+      isFishing: 0,
+      hasLifeguards: 0,
+      hasFacilities: 0
     };
     
     this.beaches.set(newBeach.id, newBeach);

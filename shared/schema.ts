@@ -13,6 +13,13 @@ export const beaches = pgTable("beaches", {
   rating: integer("rating").notNull().default(1500), // ELO rating starts at 1500
   previousRating: integer("previous_rating"), // For tracking changes
   previousRank: integer("previous_rank"), // For tracking rank changes
+  // Beach features
+  isSwimming: integer("is_swimming").default(0), // 0 = unknown, 1 = true, 2 = false
+  isSurfing: integer("is_surfing").default(0),
+  isBlueFlag: integer("is_blue_flag").default(0),
+  isFishing: integer("is_fishing").default(0),
+  hasLifeguards: integer("has_lifeguards").default(0),
+  hasFacilities: integer("has_facilities").default(0), // Toilets, showers, etc.
 });
 
 export const insertBeachSchema = createInsertSchema(beaches).omit({

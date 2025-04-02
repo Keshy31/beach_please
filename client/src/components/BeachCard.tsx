@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Beach } from "@shared/schema";
-import { Anchor, Trophy, Heart, MapPin, ThumbsUp, Palmtree } from "lucide-react";
+import { Anchor, Trophy, Heart, MapPin, ThumbsUp, Palmtree, Info } from "lucide-react";
+import { Link } from "wouter";
 
 interface BeachCardProps {
   beach: Beach;
@@ -68,6 +69,11 @@ export default function BeachCard({ beach, onVote, isVoting }: BeachCardProps) {
               <MapPin className="h-3.5 w-3.5 mr-1 text-[hsl(var(--color-primary))]" /> {beach.province}
             </p>
           </div>
+          <Link href={`/beach/${beach.id}`}>
+            <Button variant="outline" size="sm" className="text-[hsl(var(--color-primary))] hover:text-[hsl(var(--color-primary))-darker]">
+              <Info className="h-3.5 w-3.5 mr-1" /> Details
+            </Button>
+          </Link>
         </div>
         <p className="text-sm mb-4 line-clamp-3 text-[hsl(var(--color-text))/80]">{beach.description}</p>
         
