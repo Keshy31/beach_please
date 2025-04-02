@@ -222,12 +222,15 @@ export default function Beaches() {
 
           {/* Province Filter */}
           <div className="w-full md:w-[200px]">
-            <Select value={provinceFilter || ""} onValueChange={(value) => setProvinceFilter(value || null)}>
+            <Select 
+              value={provinceFilter || "all"} 
+              onValueChange={(value) => setProvinceFilter(value === "all" ? null : value)}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Province" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Provinces</SelectItem>
+                <SelectItem value="all">All Provinces</SelectItem>
                 <SelectItem value="Western Cape">Western Cape</SelectItem>
                 <SelectItem value="Eastern Cape">Eastern Cape</SelectItem>
                 <SelectItem value="KwaZulu-Natal">KwaZulu-Natal</SelectItem>
@@ -237,12 +240,15 @@ export default function Beaches() {
 
           {/* Feature Filter */}
           <div className="w-full md:w-[200px]">
-            <Select value={featureFilter || ""} onValueChange={(value) => setFeatureFilter(value || null)}>
+            <Select 
+              value={featureFilter || "all"} 
+              onValueChange={(value) => setFeatureFilter(value === "all" ? null : value)}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Features" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Features</SelectItem>
+                <SelectItem value="all">All Features</SelectItem>
                 <SelectItem value="swimming">Swimming</SelectItem>
                 <SelectItem value="surfing">Surfing</SelectItem>
                 <SelectItem value="fishing">Fishing</SelectItem>
