@@ -9,10 +9,11 @@ const __dirname = path.dirname(__filename);
 async function fetchBeachImage(beachName, province) {
   try {
     // Create a more specific query for South African beaches
-    // Include "Port Edward" for Portobello Beach which is in Port Edward
     let query = '';
     if (beachName === 'Portobello Beach') {
       query = `${beachName} Port Edward South Africa coastal`;
+    } else if (beachName === 'Mtwalume Beach') {
+      query = `${beachName} south coast KZN South Africa shoreline`;
     } else {
       query = `${beachName} beach ${province} South Africa coastal view`;
     }
@@ -47,9 +48,11 @@ async function fetchBeachImage(beachName, province) {
       }
     });
     
-    // For Portobello Beach, use the second result which appears to be from KZN South Coast
+    // For specific beaches, use different result indices based on known good images
     if (beachName === 'Portobello Beach' && data.items.length > 1) {
       return data.items[1].link;
+    } else if (beachName === 'Mtwalume Beach' && data.items.length > 1) {
+      return data.items[1].link; // The second result is an actual aerial photo
     }
     
     // For other beaches, return the first result
@@ -95,5 +98,5 @@ async function updateBeachImage(beachName, province) {
   }
 }
 
-// Execute for Portobello Beach
-updateBeachImage('Portobello Beach', 'KwaZulu-Natal');
+// Execute for Mtwalume Beach
+updateBeachImage('Mtwalume Beach', 'KwaZulu-Natal');
