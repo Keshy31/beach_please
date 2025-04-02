@@ -6,7 +6,8 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Waves, Umbrella, Shell, Anchor, Fish, Menu } from "lucide-react";
+import { Umbrella, Shell, Anchor, Menu } from "lucide-react";
+import BeachPleaseLogo from "../assets/beach-please-logo.png";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -14,11 +15,8 @@ export default function Header() {
   return (
     <header className="bg-[hsl(var(--color-primary))] shadow-md sticky top-0 z-10">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center space-x-2">
-          <Waves className="text-white h-7 w-7" />
-          <h1 className="text-2xl font-display font-bold text-white">
-            <span className="font-normal">Beach</span><span className="font-black">Please</span>
-          </h1>
+        <Link href="/" className="flex items-center">
+          <img src={BeachPleaseLogo} alt="Beach Please" className="h-10" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -43,9 +41,7 @@ export default function Header() {
           </SheetTrigger>
           <SheetContent className="bg-[hsl(var(--color-primary))]">
             <div className="flex justify-start pt-6 pl-2">
-              <h2 className="text-xl font-display font-bold text-white">
-                <span className="font-normal">Beach</span><span className="font-black">Please</span>
-              </h2>
+              <img src={BeachPleaseLogo} alt="Beach Please" className="h-8" />
             </div>
             <nav className="flex flex-col space-y-4 mt-8">
               <Link 
