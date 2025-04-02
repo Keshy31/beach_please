@@ -36,48 +36,48 @@ export default function BeachCard({ beach, onVote, isVoting }: BeachCardProps) {
 
   return (
     <Card 
-      className={`beach-card bg-white rounded-xl shadow-lg overflow-hidden max-w-sm w-full transition-all duration-300 ${
-        isHovered ? "transform -translate-y-1 shadow-xl border-[hsl(var(--color-ocean))]" : ""
+      className={`beach-card bg-white rounded-lg shadow-md overflow-hidden max-w-sm w-full transition-all duration-300 ${
+        isHovered ? "transform -translate-y-1 shadow-xl border-[hsl(var(--color-primary))]" : ""
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Beach Image */}
-      <div className="relative h-52 bg-[hsl(var(--color-ocean-light))]">
+      <div className="relative h-52 bg-[hsl(var(--color-primary))]">
         <img 
           src={beach.imageUrl} 
           alt={beach.name} 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/30 opacity-60"></div>
-        <span className="absolute top-3 left-3 bg-white/85 backdrop-blur-sm text-[hsl(var(--color-ocean-dark))] px-2 py-1 rounded-full text-sm font-medium flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/40 opacity-60"></div>
+        <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[hsl(var(--color-text))] px-2 py-1 rounded-md text-sm font-medium flex items-center">
           <ProvinceIcon /> 
           {beach.province}
         </span>
-        <span className="absolute top-3 right-3 bg-[hsl(var(--color-ocean))]/90 backdrop-blur-sm text-white px-2 py-1 rounded-full text-sm font-medium flex items-center">
+        <span className="absolute top-3 right-3 bg-[hsl(var(--color-primary))]/90 backdrop-blur-sm text-white px-2 py-1 rounded-md text-sm font-medium flex items-center">
           <Trophy className="h-3.5 w-3.5 mr-1" /> Rank #{rank}
         </span>
       </div>
 
       {/* Beach Information */}
-      <CardContent className="p-5 bg-gradient-to-br from-white to-[hsl(var(--color-sand))]/20">
+      <CardContent className="p-5 bg-gradient-to-br from-white to-[hsl(var(--color-secondary))]/10">
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="font-display font-bold text-xl text-[hsl(var(--color-ocean-dark))]">{beach.name}</h3>
+            <h3 className="font-display font-bold text-xl text-[hsl(var(--color-text))]">{beach.name}</h3>
             <p className="text-sm flex items-center text-gray-600 mb-3">
-              <MapPin className="h-3.5 w-3.5 mr-1 text-[hsl(var(--color-ocean))]" /> {beach.province}
+              <MapPin className="h-3.5 w-3.5 mr-1 text-[hsl(var(--color-primary))]" /> {beach.province}
             </p>
           </div>
         </div>
-        <p className="text-sm mb-4 line-clamp-3 text-gray-700">{beach.description}</p>
+        <p className="text-sm mb-4 line-clamp-3 text-[hsl(var(--color-text))/80]">{beach.description}</p>
         
         {/* Vote Button */}
         <Button 
           className={`w-full py-6 transition-all duration-300 ${
             hasVoted 
-              ? "bg-[hsl(var(--color-coral))] hover:bg-[hsl(var(--color-coral))]" 
-              : "bg-[hsl(var(--color-ocean))] hover:bg-[hsl(var(--color-ocean-dark))]"
-          } ${isVoting ? "opacity-70 cursor-not-allowed" : "hover:scale-[1.02]"}`}
+              ? "bg-[hsl(var(--color-accent))] hover:bg-[hsl(var(--color-accent))/90]" 
+              : "bg-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary))/90]"
+          } ${isVoting ? "opacity-70 cursor-not-allowed" : "hover:scale-[1.01]"}`}
           onClick={handleVote}
           disabled={isVoting || hasVoted}
         >
