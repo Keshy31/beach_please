@@ -73,10 +73,10 @@ export default function BeachCard({ beach, onVote, isVoting }: BeachCardProps) {
         
         {/* Vote Button */}
         <Button 
-          className={`w-full py-6 transition-all duration-300 ${
+          className={`w-full py-6 transition-all duration-300 text-white ${
             hasVoted 
-              ? "bg-[hsl(var(--color-accent))] hover:bg-[hsl(var(--color-accent))/90]" 
-              : "bg-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary))/90]"
+              ? "bg-[hsl(var(--color-accent))] hover:bg-[#e05f32]" 
+              : "bg-[hsl(var(--color-primary))] hover:bg-[#188a84]"
           } ${isVoting ? "opacity-70 cursor-not-allowed" : "hover:scale-[1.01]"}`}
           onClick={handleVote}
           disabled={isVoting || hasVoted}

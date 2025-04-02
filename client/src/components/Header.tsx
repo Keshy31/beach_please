@@ -32,7 +32,7 @@ export default function Header() {
           <Link href="#about" className="text-white hover:text-[hsl(var(--color-secondary))] transition-colors flex items-center gap-1 font-medium">
             <Shell className="h-4 w-4" /> About
           </Link>
-          <Button className="bg-[hsl(var(--color-accent))] text-white hover:bg-[hsl(var(--color-accent))/90]">
+          <Button className="bg-[hsl(var(--color-accent))] text-white hover:bg-[#e05f32]">
             <Fish className="h-4 w-4 mr-1" /> Sign In
           </Button>
         </div>
@@ -72,7 +72,7 @@ export default function Header() {
               >
                 <Shell className="h-5 w-5" /> About
               </Link>
-              <Button className="bg-[hsl(var(--color-accent))] text-white hover:bg-[hsl(var(--color-accent))/90] w-full mt-4">
+              <Button className="bg-[hsl(var(--color-accent))] text-white hover:bg-[#e05f32] w-full mt-4">
                 <Fish className="h-4 w-4 mr-1" /> Sign In
               </Button>
             </nav>
