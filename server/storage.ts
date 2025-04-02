@@ -39,23 +39,31 @@ export class MemStorage implements IStorage {
     let beachData: InsertBeach[] = [];
     
     try {
-      // Try to load from extracted_data/beaches_with_better_images.json first
-      const filePath = path.join(process.cwd(), 'extracted_data', 'beaches_with_better_images.json');
-      if (fs.existsSync(filePath)) {
-        const jsonData = fs.readFileSync(filePath, 'utf-8');
+      // Try to load from extracted_data/beaches_with_authentic_images.json first
+      const authenticPath = path.join(process.cwd(), 'extracted_data', 'beaches_with_authentic_images.json');
+      if (fs.existsSync(authenticPath)) {
+        const jsonData = fs.readFileSync(authenticPath, 'utf-8');
         beachData = JSON.parse(jsonData);
-        console.log(`Loaded ${beachData.length} beaches from beaches_with_better_images.json`);
+        console.log(`Loaded ${beachData.length} beaches from beaches_with_authentic_images.json`);
       } else {
-        // Fallback to enriched data if the better images file doesn't exist
-        const fallbackPath = path.join(process.cwd(), 'extracted_data', 'beaches_enriched.json');
-        if (fs.existsSync(fallbackPath)) {
-          const jsonData = fs.readFileSync(fallbackPath, 'utf-8');
+        // Fallback to beaches_with_better_images.json if authentic images don't exist
+        const betterImagesPath = path.join(process.cwd(), 'extracted_data', 'beaches_with_better_images.json');
+        if (fs.existsSync(betterImagesPath)) {
+          const jsonData = fs.readFileSync(betterImagesPath, 'utf-8');
           beachData = JSON.parse(jsonData);
-          console.log(`Loaded ${beachData.length} beaches from beaches_enriched.json`);
+          console.log(`Loaded ${beachData.length} beaches from beaches_with_better_images.json`);
         } else {
-          // Fallback to sample data if no beach data files exist
-          console.log('Beach data files not found, using sample beaches');
-          beachData = this.getSampleBeaches();
+          // Fallback to enriched data if better images file doesn't exist
+          const fallbackPath = path.join(process.cwd(), 'extracted_data', 'beaches_enriched.json');
+          if (fs.existsSync(fallbackPath)) {
+            const jsonData = fs.readFileSync(fallbackPath, 'utf-8');
+            beachData = JSON.parse(jsonData);
+            console.log(`Loaded ${beachData.length} beaches from beaches_enriched.json`);
+          } else {
+            // Fallback to sample data if no beach data files exist
+            console.log('Beach data files not found, using sample beaches');
+            beachData = this.getSampleBeaches();
+          }
         }
       }
     } catch (error) {

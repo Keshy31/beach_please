@@ -1,0 +1,551 @@
+[
+  {
+    "name": "Bluewater Beach",
+    "province": "Eastern Cape",
+    "location": "Port Elizabeth",
+    "description": "A beautiful beach located in Port Elizabeth, Eastern Cape, South Africa.",
+    "imageUrl": "https://afktravel.com/wp-content/uploads/2015/09/port-elizabeth-aerial.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jeffrey%27s_Bay_South_Africa.jpg/800px-Jeffrey%27s_Bay_South_Africa.jpg"
+  },
+  {
+    "name": "Cape St. Francis Beach",
+    "province": "Eastern Cape",
+    "location": "Cape St. Francis",
+    "description": "A beautiful beach located in Cape St. Francis, Eastern Cape, South Africa.",
+    "imageUrl": "https://thetravelexpert.ie/wp-content/uploads/2018/05/CSTF-Web.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jeffrey%27s_Bay_South_Africa.jpg/800px-Jeffrey%27s_Bay_South_Africa.jpg"
+  },
+  {
+    "name": "Jeffreys Bay Beach",
+    "province": "Eastern Cape",
+    "location": "Jeffreys Bay",
+    "description": "A beautiful beach located in Jeffreys Bay, Eastern Cape, South Africa.",
+    "imageUrl": "http://www.fineartcanvas.com/cdn/shop/products/0161462.jpg?v=1645785167",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jeffrey%27s_Bay_South_Africa.jpg/800px-Jeffrey%27s_Bay_South_Africa.jpg"
+  },
+  {
+    "name": "Kidds Beach",
+    "province": "Eastern Cape",
+    "location": "Kidds Beach",
+    "description": "A beautiful beach located in Kidds Beach, Eastern Cape, South Africa.",
+    "imageUrl": "https://www.researchgate.net/publication/343149486/figure/fig1/AS:918716132892672@1596050403103/Map-of-Kidds-beach.png",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jeffrey%27s_Bay_South_Africa.jpg/800px-Jeffrey%27s_Bay_South_Africa.jpg"
+  },
+  {
+    "name": "King's Beach",
+    "province": "Eastern Cape",
+    "location": "Port Elizabeth",
+    "description": "A beautiful beach located in Port Elizabeth, Eastern Cape, South Africa.",
+    "imageUrl": "https://www.superstock.com/cdn/4441/Comp/4441-5862.webp",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jeffrey%27s_Bay_South_Africa.jpg/800px-Jeffrey%27s_Bay_South_Africa.jpg"
+  },
+  {
+    "name": "New Brighton Beach",
+    "province": "Eastern Cape",
+    "location": "Port Elizabeth",
+    "description": "A beautiful beach located in Port Elizabeth, Eastern Cape, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jeffrey%27s_Bay_South_Africa.jpg/800px-Jeffrey%27s_Bay_South_Africa.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jeffrey%27s_Bay_South_Africa.jpg/800px-Jeffrey%27s_Bay_South_Africa.jpg"
+  },
+  {
+    "name": "Pollok Beach",
+    "province": "Eastern Cape",
+    "location": "Port Elizabeth",
+    "description": "A beautiful beach located in Port Elizabeth, Eastern Cape, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jeffrey%27s_Bay_South_Africa.jpg/800px-Jeffrey%27s_Bay_South_Africa.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jeffrey%27s_Bay_South_Africa.jpg/800px-Jeffrey%27s_Bay_South_Africa.jpg"
+  },
+  {
+    "name": "Alkanstrand Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Richards Bay",
+    "description": "A beautiful beach located in Richards Bay, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Banana Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Shepstone",
+    "description": "A beautiful beach located in Port Shepstone, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Bazley Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Bazley",
+    "description": "A beautiful beach located in Bazley, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Beaches of Durban",
+    "province": "KwaZulu-Natal",
+    "location": "Durban",
+    "description": "A beautiful beach located in Durban, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Black Rock Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward",
+    "description": "A beautiful beach located in Port Edward, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Blythedale Beach",
+    "province": "KwaZulu-Natal",
+    "location": "KwaDukuza",
+    "description": "A beautiful beach located in KwaDukuza, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Clarke Bay Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Ballito",
+    "description": "A beautiful beach located in Ballito, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Compensation Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Ballito",
+    "description": "A beautiful beach located in Ballito, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Glenmore Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward",
+    "description": "A beautiful beach located in Port Edward, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Hibberdene Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Hibberdene",
+    "description": "A beautiful beach located in Hibberdene, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Ifafa Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Ifafa Beach",
+    "description": "A beautiful beach located in Ifafa Beach, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Ivy Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward",
+    "description": "A beautiful beach located in Port Edward, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Leisure Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward",
+    "description": "A beautiful beach located in Port Edward, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Lucien Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Margate",
+    "description": "A beautiful beach located in Margate, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Manaba Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Margate",
+    "description": "A beautiful beach located in Margate, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Margate Main Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Margate",
+    "description": "A beautiful beach located in Margate, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Melville Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Shepstone/Hibberdene",
+    "description": "A beautiful beach located in Port Shepstone/Hibberdene, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Mtwalume Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Mtwalume",
+    "description": "A beautiful beach located in Mtwalume, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Oslo Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Shepstone",
+    "description": "A beautiful beach located in Port Shepstone, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Palm Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward/Southbroom",
+    "description": "A beautiful beach located in Port Edward/Southbroom, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Pennington Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Pennington",
+    "description": "A beautiful beach located in Pennington, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Port Edward Main Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward",
+    "description": "A beautiful beach located in Port Edward, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Port Shepstone Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Shepstone",
+    "description": "A beautiful beach located in Port Shepstone, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Portobello Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward",
+    "description": "A beautiful beach located in Port Edward, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Pumula Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Umzumbe",
+    "description": "A beautiful beach located in Umzumbe, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Ramsgate Main Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Ramsgate",
+    "description": "A beautiful beach located in Ramsgate, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Ramsgate South Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Ramsgate",
+    "description": "A beautiful beach located in Ramsgate, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Rennies Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward",
+    "description": "A beautiful beach located in Port Edward, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Salmon Bay Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward",
+    "description": "A beautiful beach located in Port Edward, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Salt Rock Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Salt Rock",
+    "description": "A beautiful beach located in Salt Rock, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "San Lameer Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Southbroom",
+    "description": "A beautiful beach located in Southbroom, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Scottburgh Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Scottburgh",
+    "description": "A beautiful beach located in Scottburgh, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Sea Park Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Shepstone",
+    "description": "A beautiful beach located in Port Shepstone, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Sheffield Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Ballito",
+    "description": "A beautiful beach located in Ballito, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Shelly Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Shelly Beach",
+    "description": "A beautiful beach located in Shelly Beach, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Silver Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward",
+    "description": "A beautiful beach located in Port Edward, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Southbroom Main Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Southbroom",
+    "description": "A beautiful beach located in Southbroom, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Southport Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Shepstone",
+    "description": "A beautiful beach located in Port Shepstone, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "St Michael's Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Shelly Beach",
+    "description": "A beautiful beach located in Shelly Beach, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "T.O. Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Edward",
+    "description": "A beautiful beach located in Port Edward, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Thompsons Bay Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Ballito/Shaka's Rock",
+    "description": "A beautiful beach located in Ballito/Shaka's Rock, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Tinley Manor Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Ballito",
+    "description": "A beautiful beach located in Ballito, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Trafalgar Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Southbroom",
+    "description": "A beautiful beach located in Southbroom, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Tugela Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Tugela Mouth",
+    "description": "A beautiful beach located in Tugela Mouth, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Tweni Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Port Shepstone",
+    "description": "A beautiful beach located in Port Shepstone, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Umhlali Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Ballito",
+    "description": "A beautiful beach located in Ballito, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Umkobi Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Southbroom",
+    "description": "A beautiful beach located in Southbroom, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Umzumbe Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Umzumbe",
+    "description": "A beautiful beach located in Umzumbe, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Uvongo Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Uvongo",
+    "description": "A beautiful beach located in Uvongo, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Willard Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Ballito",
+    "description": "A beautiful beach located in Ballito, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Windsor on Sea Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Shelly Beach",
+    "description": "A beautiful beach located in Shelly Beach, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Zinkwazi Beach",
+    "province": "KwaZulu-Natal",
+    "location": "Zinkwazi Beach",
+    "description": "A beautiful beach located in Zinkwazi Beach, KwaZulu-Natal, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Durban_beach_front.jpg/800px-Durban_beach_front.jpg"
+  },
+  {
+    "name": "Beaches of Cape Town",
+    "province": "Western Cape",
+    "location": "Cape Town",
+    "description": "A beautiful beach located in Cape Town, Western Cape, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Camps_Bay_Cape_Town.jpg/800px-Camps_Bay_Cape_Town.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Camps_Bay_Cape_Town.jpg/800px-Camps_Bay_Cape_Town.jpg"
+  },
+  {
+    "name": "Elands Bay Beach",
+    "province": "Western Cape",
+    "location": "Elands Bay",
+    "description": "A beautiful beach located in Elands Bay, Western Cape, South Africa.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Camps_Bay_Cape_Town.jpg/800px-Camps_Bay_Cape_Town.jpg",
+    "source": "Wikipedia",
+    "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Camps_Bay_Cape_Town.jpg/800px-Camps_Bay_Cape_Town.jpg"
+  }
+]
