@@ -98,7 +98,7 @@ export default function ActivityFeed() {
                   // Actual data
                   votes.map((vote, index) => (
                     <li key={vote.id} className="mb-3">
-                      <div className="relative bg-gradient-to-r from-slate-50 to-white rounded-lg p-3 shadow-sm border border-slate-100">
+                      <div className="relative bg-gradient-to-r from-slate-50 to-white rounded-lg p-3 sm:p-4 shadow-sm border border-slate-100">
                         <div className="flex items-center justify-between mb-1">
                           <Badge variant="default" className="bg-[#20B2AA] hover:bg-[#20B2AA] py-0 px-2 h-5 text-xs">
                             Winner
@@ -108,8 +108,8 @@ export default function ActivityFeed() {
                           </span>
                         </div>
                         
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="relative w-10 h-10 overflow-hidden rounded-md border-2 border-[#20B2AA]">
+                        <div className="flex items-start gap-2 mb-3">
+                          <div className="relative w-12 h-12 sm:w-10 sm:h-10 overflow-hidden rounded-md border-2 border-[#20B2AA] flex-shrink-0">
                             {vote.winnerImageUrl ? (
                               <img 
                                 src={vote.winnerImageUrl} 
@@ -122,14 +122,14 @@ export default function ActivityFeed() {
                               </div>
                             )}
                           </div>
-                          <div className="flex-1">
+                          <div className="flex-1 min-w-0">
                             <Link href={`/beach/${vote.winnerBeachId}`}>
-                              <h4 className="font-bold text-sm text-slate-800 hover:text-[hsl(var(--color-primary))] transition-colors duration-200">{vote.winnerName}</h4>
+                              <h4 className="font-bold text-sm text-slate-800 hover:text-[hsl(var(--color-primary))] transition-colors duration-200 truncate">{vote.winnerName}</h4>
                             </Link>
-                            <div className="flex items-center justify-between">
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                               <p className="text-xs text-slate-500">{vote.winnerProvince}</p>
                               {vote.winnerPreviousRank && vote.winnerCurrentRank && (
-                                <p className="text-[10px] text-slate-400">
+                                <p className="text-[10px] text-slate-400 mt-0.5 sm:mt-0">
                                   Rank: {vote.winnerCurrentRank} 
                                   {vote.winnerPreviousRank !== vote.winnerCurrentRank && (
                                     <span className="ml-1 text-emerald-500">
@@ -141,7 +141,7 @@ export default function ActivityFeed() {
                             </div>
                           </div>
                           {vote.winnerRatingChange && (
-                            <div className="flex items-center text-emerald-600 font-semibold text-sm">
+                            <div className="flex items-center text-emerald-600 font-semibold text-sm flex-shrink-0">
                               <ArrowUp className="h-3 w-3 mr-1" />
                               +{vote.winnerRatingChange}
                             </div>
@@ -153,8 +153,8 @@ export default function ActivityFeed() {
                           <div className="relative bg-white px-2 text-xs text-gray-500">vs</div>
                         </div>
                         
-                        <div className="flex items-center gap-2">
-                          <div className="relative w-10 h-10 overflow-hidden rounded-md border-2 border-slate-300">
+                        <div className="flex items-start gap-2">
+                          <div className="relative w-12 h-12 sm:w-10 sm:h-10 overflow-hidden rounded-md border-2 border-slate-300 flex-shrink-0">
                             {vote.loserImageUrl ? (
                               <img 
                                 src={vote.loserImageUrl} 
@@ -167,14 +167,14 @@ export default function ActivityFeed() {
                               </div>
                             )}
                           </div>
-                          <div className="flex-1">
+                          <div className="flex-1 min-w-0">
                             <Link href={`/beach/${vote.loserBeachId}`}>
-                              <h4 className="font-medium text-sm text-slate-600 hover:text-[hsl(var(--color-primary))] transition-colors duration-200">{vote.loserName}</h4>
+                              <h4 className="font-medium text-sm text-slate-600 hover:text-[hsl(var(--color-primary))] transition-colors duration-200 truncate">{vote.loserName}</h4>
                             </Link>
-                            <div className="flex items-center justify-between">
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                               <p className="text-xs text-slate-400">{vote.loserProvince}</p>
                               {vote.loserPreviousRank && vote.loserCurrentRank && (
-                                <p className="text-[10px] text-slate-400">
+                                <p className="text-[10px] text-slate-400 mt-0.5 sm:mt-0">
                                   Rank: {vote.loserCurrentRank} 
                                   {vote.loserPreviousRank !== vote.loserCurrentRank && (
                                     <span className="ml-1 text-red-400">
@@ -186,7 +186,7 @@ export default function ActivityFeed() {
                             </div>
                           </div>
                           {vote.loserRatingChange && (
-                            <div className="flex items-center text-red-500 font-semibold text-sm">
+                            <div className="flex items-center text-red-500 font-semibold text-sm flex-shrink-0">
                               <ArrowDown className="h-3 w-3 mr-1" />
                               {vote.loserRatingChange}
                             </div>
