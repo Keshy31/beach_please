@@ -7,7 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Umbrella, Shell, Anchor, Menu, Map } from "lucide-react";
-import BeachPleaseLogo from "../assets/temp/beach-please-logo-trimmed.png";
+import BeachPleaseLogo from "../assets/temp/beach-please-logo-updated.png";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
