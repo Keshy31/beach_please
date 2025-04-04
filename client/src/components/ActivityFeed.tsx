@@ -129,7 +129,7 @@ export default function ActivityFeed() {
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                               <p className="beach-location">{vote.winnerProvince}</p>
                               {vote.winnerPreviousRank && vote.winnerCurrentRank && (
-                                <p className="beach-rank mt-0.5 sm:mt-0">
+                                <p className="beach-rank mt-0.5 sm:mt-0 text-right sm:text-right w-full">
                                   Rank: <span className="beach-rank-number">{vote.winnerCurrentRank}</span> 
                                   {vote.winnerPreviousRank !== vote.winnerCurrentRank && (
                                     <span className="ml-1 text-emerald-500">
@@ -174,7 +174,7 @@ export default function ActivityFeed() {
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                               <p className="beach-location text-slate-400">{vote.loserProvince}</p>
                               {vote.loserPreviousRank && vote.loserCurrentRank && (
-                                <p className="beach-rank mt-0.5 sm:mt-0">
+                                <p className="beach-rank mt-0.5 sm:mt-0 text-right sm:text-right w-full">
                                   Rank: <span className="beach-rank-number">{vote.loserCurrentRank}</span> 
                                   {vote.loserPreviousRank !== vote.loserCurrentRank && (
                                     <span className="ml-1 text-red-400">
