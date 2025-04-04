@@ -10,6 +10,27 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+  
+  /* Typography styles for beach app */
+  .beach-name {
+    @apply font-montserrat font-bold text-slate-800;
+  }
+  
+  .beach-location {
+    @apply font-montserrat font-light text-[#20B2AA];
+  }
+  
+  .beach-rank {
+    @apply font-poppins text-xs;
+  }
+  
+  .beach-rank-number {
+    @apply font-poppins font-medium text-[#FF7F50];
+  }
+  
+  .timestamp {
+    @apply font-poppins italic text-gray-400 text-xs;
+  }
 }
 
 /* Beach and ocean theme colors - Luxury Beach Theme for high-paying tourists */

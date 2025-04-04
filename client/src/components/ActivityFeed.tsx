@@ -103,7 +103,7 @@ export default function ActivityFeed() {
                           <Badge variant="default" className="bg-[#20B2AA] hover:bg-[#20B2AA] py-0 px-2 h-5 text-xs">
                             Winner
                           </Badge>
-                          <span className="text-xs text-gray-400">
+                          <span className="timestamp">
                             {formatRelativeTime(vote.createdAt)}
                           </span>
                         </div>
@@ -124,13 +124,13 @@ export default function ActivityFeed() {
                           </div>
                           <div className="flex-1 min-w-0">
                             <Link href={`/beach/${vote.winnerBeachId}`}>
-                              <h4 className="font-bold text-sm text-slate-800 hover:text-[hsl(var(--color-primary))] transition-colors duration-200 truncate">{vote.winnerName}</h4>
+                              <h4 className="beach-name text-sm hover:text-[hsl(var(--color-primary))] transition-colors duration-200 truncate">{vote.winnerName}</h4>
                             </Link>
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                              <p className="text-xs text-slate-500">{vote.winnerProvince}</p>
+                              <p className="beach-location">{vote.winnerProvince}</p>
                               {vote.winnerPreviousRank && vote.winnerCurrentRank && (
-                                <p className="text-[10px] text-slate-400 mt-0.5 sm:mt-0">
-                                  Rank: {vote.winnerCurrentRank} 
+                                <p className="beach-rank mt-0.5 sm:mt-0">
+                                  Rank: <span className="beach-rank-number">{vote.winnerCurrentRank}</span> 
                                   {vote.winnerPreviousRank !== vote.winnerCurrentRank && (
                                     <span className="ml-1 text-emerald-500">
                                       (was {vote.winnerPreviousRank})
@@ -169,13 +169,13 @@ export default function ActivityFeed() {
                           </div>
                           <div className="flex-1 min-w-0">
                             <Link href={`/beach/${vote.loserBeachId}`}>
-                              <h4 className="font-medium text-sm text-slate-600 hover:text-[hsl(var(--color-primary))] transition-colors duration-200 truncate">{vote.loserName}</h4>
+                              <h4 className="beach-name text-sm text-slate-600 hover:text-[hsl(var(--color-primary))] transition-colors duration-200 truncate">{vote.loserName}</h4>
                             </Link>
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                              <p className="text-xs text-slate-400">{vote.loserProvince}</p>
+                              <p className="beach-location text-slate-400">{vote.loserProvince}</p>
                               {vote.loserPreviousRank && vote.loserCurrentRank && (
-                                <p className="text-[10px] text-slate-400 mt-0.5 sm:mt-0">
-                                  Rank: {vote.loserCurrentRank} 
+                                <p className="beach-rank mt-0.5 sm:mt-0">
+                                  Rank: <span className="beach-rank-number">{vote.loserCurrentRank}</span> 
                                   {vote.loserPreviousRank !== vote.loserCurrentRank && (
                                     <span className="ml-1 text-red-400">
                                       (was {vote.loserPreviousRank})
