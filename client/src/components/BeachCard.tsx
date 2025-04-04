@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Beach } from "@shared/schema";
-import { Anchor, Trophy, Heart, MapPin, ThumbsUp, Palmtree, Award } from "lucide-react";
+import { Anchor, Trophy, Heart, MapPin, ThumbsUp, Palmtree, Award, Star } from "lucide-react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface BeachCardProps {
   beach: Beach;
@@ -15,9 +15,17 @@ interface BeachCardProps {
 export default function BeachCard({ beach, onVote, isVoting }: BeachCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [hasVoted, setHasVoted] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const handleVote = () => {
     setHasVoted(true);
+    setShowConfetti(true);
+    
+    // Hide confetti after animation completes
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 1500);
+    
     onVote();
   };
 
@@ -38,28 +46,74 @@ export default function BeachCard({ beach, onVote, isVoting }: BeachCardProps) {
 
   return (
     <div className="relative">
-      {hasVoted && (
-        <motion.div 
-          className="absolute -top-16 left-1/2 transform -translate-x-1/2 z-20"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: -20, opacity: 1, scale: [1, 1.2, 1] }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <Award className="h-12 w-12 text-yellow-400 drop-shadow-lg" />
-        </motion.div>
-      )}
+      {/* Victory Award Animation */}
+      <AnimatePresence>
+        {hasVoted && (
+          <motion.div 
+            className="absolute -top-16 left-1/2 transform -translate-x-1/2 z-20"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: -20, opacity: 1, scale: [1, 1.2, 1] }}
+            exit={{ y: -50, opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <Award className="h-12 w-12 text-yellow-400 drop-shadow-lg" />
+          </motion.div>
+        )}
+
+        {/* Confetti Animation */}
+        {showConfetti && (
+          <>
+            {Array.from({ length: 20 }).map((_, i) => {
+              const colors = ["bg-blue-500", "bg-green-500", "bg-yellow-400", 
+                "bg-pink-500", "bg-purple-500", "bg-cyan-400"];
+              
+              const randomX = Math.random() * 200 - 100;
+              const randomY = Math.random() * 200 - 100;
+              const scale = 0.5 + Math.random() * 0.5;
+              const rotation = Math.random() * 360;
+              const delay = Math.random() * 0.2;
+              
+              return (
+                <motion.div
+                  key={i}
+                  className={`absolute top-1/2 left-1/2 h-3 w-3 rounded-full ${colors[i % colors.length]}`}
+                  initial={{ 
+                    x: 0, 
+                    y: 0, 
+                    opacity: 1,
+                    rotate: 0
+                  }}
+                  animate={{ 
+                    x: randomX, 
+                    y: randomY - 100,
+                    opacity: 0,
+                    scale: [1, scale, 0],
+                    rotate: rotation
+                  }}
+                  transition={{ 
+                    duration: 1 + Math.random(), 
+                    ease: "easeOut",
+                    delay
+                  }}
+                />
+              );
+            })}
+          </>
+        )}
+      </AnimatePresence>
       
       <motion.div
         animate={hasVoted ? 
-          { scale: [1, 1.05, 1], y: [0, -10, 0] } : 
+          { scale: [1, 1.1, 1.05], y: [0, -15, -10], 
+            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" } : 
           { scale: 1 }
         }
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6 }}
       >
         <Card 
           className={`beach-card bg-white rounded-lg shadow-md overflow-hidden max-w-sm w-full transition-all duration-300 ${
             isHovered ? "transform -translate-y-1 shadow-xl border-[hsl(var(--color-primary))]" : ""
-          }`}
+          } ${hasVoted ? "border-2 border-yellow-400" : ""}`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
