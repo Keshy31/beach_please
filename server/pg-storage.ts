@@ -145,24 +145,42 @@ export class PgStorage implements IStorage {
   }
 
   async updateRankings(): Promise<void> {
-    // Get current ranked beaches
+    // Get beaches that need updating (new beaches or those with rank changes)
     const rankedBeaches = await this.getRankedBeaches();
     
-    // Update all beaches in a single loop
-    for (let i = 0; i < rankedBeaches.length; i++) {
-      const beach = rankedBeaches[i];
-      const currentRank = i + 1;
+    // Create a batch of promises for parallel processing
+    const updatePromises = [];
+    
+    // Process beaches in batches of 10 for parallel processing
+    // This significantly reduces the time needed for updates
+    const batchSize = 10;
+    for (let i = 0; i < rankedBeaches.length; i += batchSize) {
+      const batch = rankedBeaches.slice(i, i + batchSize);
       
-      // Only update if rank changed or not set
-      if (!beach.previousRank || beach.previousRank !== currentRank) {
-        // Set previousRank only if it doesn't exist yet
-        if (!beach.previousRank) {
-          beach.previousRank = currentRank;
+      // Create update operations for this batch
+      const batchPromises = batch.map((beach, batchIndex) => {
+        const currentRank = i + batchIndex + 1;
+        
+        // Only update if rank changed or not set
+        if (!beach.previousRank || beach.previousRank !== currentRank) {
+          // Set previousRank for new beaches
+          if (!beach.previousRank) {
+            beach.previousRank = currentRank;
+          }
+          
+          // Update the beach
+          return this.updateBeach(beach);
         }
         
-        // Update the beach
-        await this.updateBeach(beach);
-      }
+        // Skip beaches that don't need updates
+        return Promise.resolve();
+      });
+      
+      // Add this batch to our update operations
+      updatePromises.push(Promise.all(batchPromises));
     }
+    
+    // Wait for all batches to complete
+    await Promise.all(updatePromises);
   }
 }
