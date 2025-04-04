@@ -30,7 +30,8 @@ export default function Home() {
     isLoading: isRankingsLoading,
   } = useQuery<Beach[]>({ 
     queryKey: ["/api/rankings"],
-    refetchInterval: 30000, // Refresh rankings every 30 seconds
+    refetchInterval: 120000, // Poll every 2 minutes for multi-user scenarios
+    refetchOnWindowFocus: false, // Don't refetch on window focus
   });
 
   // Vote mutation

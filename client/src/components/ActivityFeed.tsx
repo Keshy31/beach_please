@@ -33,7 +33,8 @@ export default function ActivityFeed() {
   // Fetch recent votes
   const { data: votes, isLoading } = useQuery<EnhancedVote[]>({
     queryKey: ["/api/votes/recent"],
-    refetchInterval: 10000, // Refresh every 10 seconds
+    refetchInterval: 60000, // Poll every minute for multi-user scenarios
+    refetchOnWindowFocus: false, // Don't refetch on window focus
   });
 
   // Format relative time (e.g., "2 minutes ago")

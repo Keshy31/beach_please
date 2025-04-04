@@ -115,10 +115,10 @@ export class PgStorage implements IStorage {
           WHEN id = ${loserBeach.id} THEN ${newLoserRating}
           ELSE "rating"
         END,
-        "previousRating" = CASE
+        "previous_rating" = CASE
           WHEN id = ${winnerBeach.id} THEN ${winnerPreviousRating}
           WHEN id = ${loserBeach.id} THEN ${loserPreviousRating}
-          ELSE "previousRating"
+          ELSE "previous_rating"
         END
       WHERE id IN (${winnerBeach.id}, ${loserBeach.id});
     `;
@@ -177,18 +177,35 @@ export class PgStorage implements IStorage {
         return `WHEN id = ${beach.id} THEN ${index + 1}`;
       }).join(' ');
     
-    // Build the SQL query for bulk update
-    let query = `
-      UPDATE beaches 
-      SET "previousRank" = 
-        CASE 
-          ${previousRankCases}
-          ELSE "previousRank"
-        END
-      WHERE id IN (${idCases});
-    `;
+    // Build the SQL query for bulk update - process previousRank update
+    if (previousRankCases.length > 0) {
+      const previousRankQuery = `
+        UPDATE beaches 
+        SET "previous_rank" = 
+          CASE 
+            ${previousRankCases}
+            ELSE "previous_rank"
+          END
+        WHERE id IN (${idCases});
+      `;
+      
+      // Execute the previous rank update
+      await db.execute(previousRankQuery);
+    }
     
-    // Execute the bulk update - a single database operation instead of many
-    await db.execute(query);
+    // Always update the rank field for all beaches
+    if (rankCases.length > 0) {
+      const rankQuery = `
+        UPDATE beaches 
+        SET "rank" = 
+          CASE 
+            ${rankCases}
+          END
+        WHERE id IN (${idCases});
+      `;
+      
+      // Execute the rank update
+      await db.execute(rankQuery);
+    }
   }
 }
