@@ -27,7 +27,7 @@ export default function Header() {
           <Link href="/beaches" className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors flex items-center gap-1 font-medium">
             <Map className="h-4 w-4" /> All Beaches
           </Link>
-          <Link href="#rankings" className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors flex items-center gap-1 font-medium">
+          <Link href="/rankings" className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors flex items-center gap-1 font-medium">
             <Anchor className="h-4 w-4" /> Rankings
           </Link>
           <Link href="#about" className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors flex items-center gap-1 font-medium">
@@ -62,7 +62,7 @@ export default function Header() {
                 <Map className="h-5 w-5" /> All Beaches
               </Link>
               <Link 
-                href="#rankings" 
+                href="/rankings" 
                 className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors py-2 flex items-center gap-2"
                 onClick={() => setIsNavOpen(false)}
               >

@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Beach } from "@shared/schema";
-import { Trophy, ArrowUp, ArrowDown, Minus, ListFilter, MapPin, Info } from "lucide-react";
+import { Trophy, ArrowUp, ArrowDown, Minus, ListFilter, MapPin, Info, Anchor } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
@@ -164,9 +164,12 @@ export default function RankingsTable({ beaches, isLoading }: RankingsTableProps
           </Table>
         </ScrollArea>
       </div>
-      <CardContent className="p-4 border-t border-gray-100 bg-[hsl(var(--color-secondary))]/5 text-right">
+      <CardContent className="p-4 border-t border-gray-100 bg-[hsl(var(--color-secondary))]/5 flex justify-between">
         <Link href="/beaches" className="text-[hsl(var(--color-primary))] hover:text-[hsl(var(--color-primary))]/80 font-medium inline-flex items-center">
           View all beaches <ArrowUp className="h-4 w-4 ml-1 transform rotate-45" />
+        </Link>
+        <Link href="/rankings" className="text-[hsl(var(--color-primary))] hover:text-[hsl(var(--color-primary))]/80 font-medium inline-flex items-center">
+          Full rankings <Trophy className="h-4 w-4 ml-1" />
         </Link>
       </CardContent>
     </Card>

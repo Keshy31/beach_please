@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { 
   Trophy, Filter, ArrowUp, ArrowDown, Info, 
-  AlertTriangle, BarChart3, PieChart 
+  AlertTriangle, BarChart3, PieChart, Anchor
 } from "lucide-react";
 import { Beach } from "@shared/schema";
 import { Button } from "@/components/ui/button";
