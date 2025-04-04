@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { 
   Heart, Filter, Search, SortAsc, SortDesc, Anchor, Trophy, 
-  Palmtree, Award, Waves, Fish, LifeBuoy, Home, CheckCircle2 
+  Palmtree, Award, Waves, Fish, LifeBuoy, Home, CheckCircle2, Star
 } from "lucide-react";
 import { Link } from "wouter";
 
@@ -65,7 +65,7 @@ const BeachGridCard = ({ beach }: { beach: Beach }) => {
 
         {/* Rank Badge */}
         <Badge variant="default" className="absolute top-3 right-3 bg-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary))]">
-          <Trophy className="h-3.5 w-3.5 mr-1" /> Rank #{beach.previousRank || "N/A"}
+          <Star className="h-3.5 w-3.5 mr-1 fill-white" /> Rank #{beach.previousRank || "N/A"}
         </Badge>
 
         {/* Blue Flag Badge (if applicable) */}
@@ -98,7 +98,10 @@ const BeachGridCard = ({ beach }: { beach: Beach }) => {
         {/* Rating */}
         <div className="flex justify-between items-center pt-2 border-t border-gray-100">
           <span className="text-sm font-semibold">Rating</span>
-          <span className="text-[hsl(var(--color-primary))] font-mono font-medium">{beach.rating}</span>
+          <span className="text-[hsl(var(--color-primary))] font-mono font-medium flex items-center">
+            <Star className="h-3.5 w-3.5 mr-1 fill-[hsl(var(--color-primary))]" />
+            {beach.rating}
+          </span>
         </div>
       </CardContent>
     </Card>

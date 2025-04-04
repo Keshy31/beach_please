@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Beach } from "@shared/schema";
-import { Anchor, Trophy, Heart, MapPin, ThumbsUp, Palmtree, Info } from "lucide-react";
+import { Anchor, Trophy, Heart, MapPin, ThumbsUp, Palmtree, Info, Star } from "lucide-react";
 import { Link } from "wouter";
 
 interface BeachCardProps {
@@ -56,7 +56,7 @@ export default function BeachCard({ beach, onVote, isVoting }: BeachCardProps) {
           {beach.province}
         </span>
         <span className="absolute top-3 right-3 bg-[hsl(var(--color-primary))]/90 backdrop-blur-sm text-white px-2 py-1 rounded-md text-sm font-medium flex items-center">
-          <Trophy className="h-3.5 w-3.5 mr-1" /> Rank #{rank}
+          <Star className="h-3.5 w-3.5 mr-1 fill-white" /> Rank #{rank}
         </span>
       </div>
 
@@ -71,6 +71,18 @@ export default function BeachCard({ beach, onVote, isVoting }: BeachCardProps) {
               <MapPin className="h-3.5 w-3.5 mr-1 text-[hsl(var(--color-primary))]" /> {beach.province}
             </p>
           </div>
+        </div>
+        {/* Star Rating */}
+        <div className="flex items-center mb-3">
+          <div className="flex mr-2">
+            {Array.from({ length: 5 }).map((_, i) => {
+              // Calculate the filled percentage based on rating (max 2000 points)
+              const fillPercentage = Math.min(100, Math.max(0, (beach.rating - 1000) / 10));
+              const starFill = i * 20 <= fillPercentage ? "fill-[hsl(var(--color-primary))]" : "fill-gray-200";
+              return <Star key={i} className={`h-4 w-4 ${starFill} stroke-[hsl(var(--color-primary))]`} />;
+            })}
+          </div>
+          <span className="text-xs font-mono font-medium text-gray-500">{beach.rating}</span>
         </div>
         <p className="text-sm mb-4 line-clamp-3 text-[hsl(var(--color-text))/80]">{beach.description}</p>
         

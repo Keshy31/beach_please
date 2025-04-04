@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Beach } from "@shared/schema";
-import { Trophy, ArrowUp, ArrowDown, Minus, ListFilter, MapPin, Info } from "lucide-react";
+import { Trophy, ArrowUp, ArrowDown, Minus, ListFilter, MapPin, Info, Star } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
@@ -57,7 +57,7 @@ export default function RankingsTable({ beaches, isLoading }: RankingsTableProps
       <CardHeader className="bg-[hsl(var(--color-primary))] text-white p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Trophy className="h-5 w-5 mr-2" />
+            <Star className="h-5 w-5 mr-2 fill-white" />
             <CardTitle className="text-xl font-display font-bold">Top Beaches</CardTitle>
           </div>
           <div className="flex items-center">
@@ -120,8 +120,9 @@ export default function RankingsTable({ beaches, isLoading }: RankingsTableProps
                     >
                       <TableCell className="font-medium">
                         {isTopThree ? (
-                          <div className="flex items-center justify-center h-6 w-6 rounded-md bg-[hsl(var(--color-primary))] text-white">
-                            {currentRank}
+                          <div className="flex items-center justify-center h-7 w-7 rounded-md bg-[hsl(var(--color-primary))] text-white">
+                            <Star className="h-4 w-4 fill-white" />
+                            <span className="absolute text-xs font-bold">{currentRank}</span>
                           </div>
                         ) : (
                           currentRank
@@ -151,7 +152,10 @@ export default function RankingsTable({ beaches, isLoading }: RankingsTableProps
                         </div>
                       </TableCell>
                       <TableCell className="text-right font-mono font-medium text-[hsl(var(--color-text))]">
-                        {beach.rating}
+                        <div className="flex items-center justify-end">
+                          <Star className="h-3.5 w-3.5 mr-1 fill-[hsl(var(--color-primary))] text-[hsl(var(--color-primary))]" />
+                          {beach.rating}
+                        </div>
                       </TableCell>
                       <TableCell className="text-center">
                         {renderRankChange(rankChange)}
@@ -169,7 +173,7 @@ export default function RankingsTable({ beaches, isLoading }: RankingsTableProps
           View all beaches <ArrowUp className="h-4 w-4 ml-1 transform rotate-45" />
         </Link>
         <Link href="/rankings" className="text-[hsl(var(--color-primary))] hover:text-[hsl(var(--color-primary))]/80 font-medium inline-flex items-center">
-          Full rankings <Trophy className="h-4 w-4 ml-1" />
+          Full rankings <Star className="h-4 w-4 ml-1 fill-[hsl(var(--color-primary))]" />
         </Link>
       </CardContent>
     </Card>
