@@ -30,7 +30,7 @@ export default function Header() {
           <Link href="/rankings" className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors flex items-center gap-1 font-medium">
             <Anchor className="h-4 w-4" /> Rankings
           </Link>
-          <Link href="#about" className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors flex items-center gap-1 font-medium">
+          <Link href="/about" className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors flex items-center gap-1 font-medium">
             <Shell className="h-4 w-4" /> About
           </Link>
         </div>
@@ -69,7 +69,7 @@ export default function Header() {
                 <Anchor className="h-5 w-5" /> Rankings
               </Link>
               <Link 
-                href="#about" 
+                href="/about" 
                 className="text-[#20B2AA] hover:text-[#FF7F50] transition-colors py-2 flex items-center gap-2"
                 onClick={() => setIsNavOpen(false)}
               >

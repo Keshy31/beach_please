@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import BeachDetails from "@/pages/BeachDetails";
 import Beaches from "@/pages/Beaches";
 import Rankings from "@/pages/Rankings";
+import About from "@/pages/About";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ function Router() {
           <Route path="/beach/:id" component={BeachDetails} />
           <Route path="/beaches" component={Beaches} />
           <Route path="/rankings" component={Rankings} />
+          <Route path="/about" component={About} />
           {/* Fallback to 404 */}
           <Route component={NotFound} />
         </Switch>
