@@ -105,24 +105,34 @@ export class PgStorage implements IStorage {
       loserPreviousRating: loserPreviousRating,
     };
     
-    // Update beach ratings
-    winnerBeach.previousRating = winnerPreviousRating;
-    loserBeach.previousRating = loserPreviousRating;
-    winnerBeach.rating = newWinnerRating;
-    loserBeach.rating = newLoserRating;
+    // Use a single combined SQL transaction to update both beaches in one go
+    // This eliminates the need for individual update calls
+    const beachUpdateQuery = `
+      UPDATE beaches
+      SET 
+        "rating" = CASE
+          WHEN id = ${winnerBeach.id} THEN ${newWinnerRating}
+          WHEN id = ${loserBeach.id} THEN ${newLoserRating}
+          ELSE "rating"
+        END,
+        "previousRating" = CASE
+          WHEN id = ${winnerBeach.id} THEN ${winnerPreviousRating}
+          WHEN id = ${loserBeach.id} THEN ${loserPreviousRating}
+          ELSE "previousRating"
+        END
+      WHERE id IN (${winnerBeach.id}, ${loserBeach.id});
+    `;
     
-    // Execute all database operations in parallel to improve performance
+    // Execute vote insert and beach updates in parallel
     const [newVote] = await Promise.all([
       // Insert vote
       db.insert(votes).values(voteData).returning().then(result => result[0]),
       
-      // Update beaches
-      this.updateBeach(winnerBeach),
-      this.updateBeach(loserBeach)
+      // Update both beaches in a single SQL query
+      db.execute(beachUpdateQuery)
     ]);
     
-    // Now update rankings after the core vote is recorded
-    // This is moved after the promise.all to ensure the vote is recorded quickly
+    // Update rankings after recording the vote
     await this.updateRankings();
     
     return newVote;
@@ -145,42 +155,40 @@ export class PgStorage implements IStorage {
   }
 
   async updateRankings(): Promise<void> {
-    // Get beaches that need updating (new beaches or those with rank changes)
+    // Get current ranked beaches
     const rankedBeaches = await this.getRankedBeaches();
     
-    // Create a batch of promises for parallel processing
-    const updatePromises = [];
+    // Skip the update if no beaches to process
+    if (rankedBeaches.length === 0) return;
     
-    // Process beaches in batches of 10 for parallel processing
-    // This significantly reduces the time needed for updates
-    const batchSize = 10;
-    for (let i = 0; i < rankedBeaches.length; i += batchSize) {
-      const batch = rankedBeaches.slice(i, i + batchSize);
-      
-      // Create update operations for this batch
-      const batchPromises = batch.map((beach, batchIndex) => {
-        const currentRank = i + batchIndex + 1;
-        
-        // Only update if rank changed or not set
-        if (!beach.previousRank || beach.previousRank !== currentRank) {
-          // Set previousRank for new beaches
-          if (!beach.previousRank) {
-            beach.previousRank = currentRank;
-          }
-          
-          // Update the beach
-          return this.updateBeach(beach);
-        }
-        
-        // Skip beaches that don't need updates
-        return Promise.resolve();
-      });
-      
-      // Add this batch to our update operations
-      updatePromises.push(Promise.all(batchPromises));
-    }
+    // Prepare case statement for bulk update
+    // This creates a single SQL transaction that updates all beaches at once
+    // Format: CASE WHEN id = 1 THEN value1 WHEN id = 2 THEN value2 END
+    const beachIds = rankedBeaches.map(beach => beach.id);
+    const idCases = beachIds.map(id => `${id}`).join(',');
+    const rankCases = rankedBeaches.map((beach, index) => {
+      return `WHEN id = ${beach.id} THEN ${index + 1}`;
+    }).join(' ');
     
-    // Wait for all batches to complete
-    await Promise.all(updatePromises);
+    // Only update previousRank for beaches that don't have it set
+    const previousRankCases = rankedBeaches
+      .filter(beach => !beach.previousRank)
+      .map((beach, index) => {
+        return `WHEN id = ${beach.id} THEN ${index + 1}`;
+      }).join(' ');
+    
+    // Build the SQL query for bulk update
+    let query = `
+      UPDATE beaches 
+      SET "previousRank" = 
+        CASE 
+          ${previousRankCases}
+          ELSE "previousRank"
+        END
+      WHERE id IN (${idCases});
+    `;
+    
+    // Execute the bulk update - a single database operation instead of many
+    await db.execute(query);
   }
 }
