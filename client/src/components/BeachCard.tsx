@@ -62,43 +62,105 @@ export default function BeachCard({ beach, onVote, isVoting }: BeachCardProps) {
 
         {/* Confetti Animation */}
         {showConfetti && (
-          <>
-            {Array.from({ length: 20 }).map((_, i) => {
-              const colors = ["bg-blue-500", "bg-green-500", "bg-yellow-400", 
-                "bg-pink-500", "bg-purple-500", "bg-cyan-400"];
-              
-              const randomX = Math.random() * 200 - 100;
-              const randomY = Math.random() * 200 - 100;
-              const scale = 0.5 + Math.random() * 0.5;
-              const rotation = Math.random() * 360;
-              const delay = Math.random() * 0.2;
-              
-              return (
-                <motion.div
-                  key={i}
-                  className={`absolute top-1/2 left-1/2 h-3 w-3 rounded-full ${colors[i % colors.length]}`}
-                  initial={{ 
-                    x: 0, 
-                    y: 0, 
-                    opacity: 1,
-                    rotate: 0
-                  }}
-                  animate={{ 
-                    x: randomX, 
-                    y: randomY - 100,
-                    opacity: 0,
-                    scale: [1, scale, 0],
-                    rotate: rotation
-                  }}
-                  transition={{ 
-                    duration: 1 + Math.random(), 
-                    ease: "easeOut",
-                    delay
-                  }}
-                />
-              );
-            })}
-          </>
+          <div className="confetti-container">
+            {/* Confetti shapes */}
+            <motion.div 
+              className="absolute top-1/2 left-1/4 h-4 w-4 bg-blue-500 rounded-full z-30"
+              initial={{ y: 0, x: 0, opacity: 1 }}
+              animate={{ 
+                y: -100, 
+                x: -50,
+                opacity: 0, 
+                scale: [1, 1.5, 0.5] 
+              }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            />
+            <motion.div 
+              className="absolute top-1/2 right-1/4 h-4 w-4 bg-green-500 rounded-full z-30"
+              initial={{ y: 0, x: 0, opacity: 1 }}
+              animate={{ 
+                y: -100, 
+                x: 50,
+                opacity: 0, 
+                scale: [1, 1.5, 0.5] 
+              }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            />
+            <motion.div 
+              className="absolute top-1/2 left-1/2 h-4 w-4 bg-yellow-400 rotate-45 z-30"
+              style={{ width: '12px', height: '12px' }}
+              initial={{ y: 0, x: -45, opacity: 1, rotate: 0 }}
+              animate={{ 
+                y: -120, 
+                x: -80,
+                opacity: 0, 
+                rotate: 180,
+                scale: [1, 1.5, 0.5] 
+              }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            />
+            <motion.div 
+              className="absolute top-1/2 left-1/2 h-4 w-4 bg-pink-500 rotate-45 z-30"
+              style={{ width: '12px', height: '12px' }}
+              initial={{ y: 0, x: 15, opacity: 1, rotate: 0 }}
+              animate={{ 
+                y: -120, 
+                x: 60,
+                opacity: 0, 
+                rotate: 180,
+                scale: [1, 1.5, 0.5] 
+              }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            />
+            
+            {/* More confetti in various directions */}
+            <motion.div 
+              className="absolute top-1/2 left-1/2 h-3 w-3 bg-purple-500 rounded-full z-30"
+              initial={{ y: 0, x: 0, opacity: 1 }}
+              animate={{ 
+                y: -80, 
+                x: -30,
+                opacity: 0, 
+                scale: [1, 1.5, 0.5] 
+              }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            />
+            <motion.div 
+              className="absolute top-1/2 left-1/2 h-3 w-3 bg-cyan-400 rounded-full z-30"
+              initial={{ y: 0, x: 0, opacity: 1 }}
+              animate={{ 
+                y: -80, 
+                x: 30,
+                opacity: 0, 
+                scale: [1, 1.5, 0.5] 
+              }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            />
+            <motion.div 
+              className="absolute top-1/2 left-1/2 h-5 w-2 bg-red-500 rounded-full z-30"
+              initial={{ y: 0, x: 0, opacity: 1, rotate: 0 }}
+              animate={{ 
+                y: -100, 
+                x: -20,
+                opacity: 0, 
+                rotate: 90,
+                scale: [1, 1.2, 0.5] 
+              }}
+              transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+            />
+            <motion.div 
+              className="absolute top-1/2 left-1/2 h-5 w-2 bg-orange-400 rounded-full z-30"
+              initial={{ y: 0, x: 0, opacity: 1, rotate: 0 }}
+              animate={{ 
+                y: -100, 
+                x: 20,
+                opacity: 0, 
+                rotate: -90,
+                scale: [1, 1.2, 0.5] 
+              }}
+              transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+            />
+          </div>
         )}
       </AnimatePresence>
       
