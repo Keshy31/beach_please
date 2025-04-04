@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Info, Map, Anchor, Heart } from "lucide-react";
+import BeachPleaseLogo from "../assets/logos/beach-please-logo.png";
 
 export default function Footer() {
   return (
@@ -7,7 +8,9 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-bold mb-4">Beach Please</h3>
+            <div className="mb-4">
+              <img src={BeachPleaseLogo} alt="Beach Please Logo" className="h-16 mb-3" />
+            </div>
             <p className="text-white/90 text-sm">
               Helping you discover the best beaches in South Africa through community voting and fair rankings.
             </p>
