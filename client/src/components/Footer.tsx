@@ -4,7 +4,7 @@ import BeachPleaseLogo from "../assets/logos/beach-please-logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#20B2AA] text-white mt-12 py-8">
+    <footer className="bg-[#00a99d] text-white mt-12 py-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
