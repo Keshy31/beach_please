@@ -21,10 +21,10 @@ export default function BeachCard({ beach, onVote, isVoting }: BeachCardProps) {
     setHasVoted(true);
     setShowConfetti(true);
     
-    // Hide confetti after animation completes
+    // Hide confetti after animation completes (but keep the award and card highlight)
     setTimeout(() => {
       setShowConfetti(false);
-    }, 1500);
+    }, 2500);
     
     onVote();
   };

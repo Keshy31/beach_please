@@ -48,15 +48,18 @@ export default function Home() {
       await queryClient.invalidateQueries({ queryKey: ["/api/rankings"] });
       await queryClient.invalidateQueries({ queryKey: ["/api/votes/recent"] });
       
-      // Load a new beach pair
-      setIsLoadingNewPair(true);
-      await refetchPair();
-      setIsLoadingNewPair(false);
-      
+      // Add delay to allow animation to complete before loading new beach pair
       toast({
         title: "Vote recorded!",
         description: "Thanks for your input. Here's a new matchup.",
       });
+      
+      // Wait before loading a new beach pair
+      setTimeout(async () => {
+        setIsLoadingNewPair(true);
+        await refetchPair();
+        setIsLoadingNewPair(false);
+      }, 2500); // 2.5 second delay to show animations
     },
     onError: (error) => {
       toast({
