@@ -5,11 +5,11 @@ import { beaches } from '../shared/schema';
 import { eq, sql } from 'drizzle-orm';
 
 /**
- * Import beaches from data/beaches.json to the database
+ * Import remaining beaches that were skipped due to null image_url
  */
-async function importBeaches() {
+async function importRemainingBeaches() {
   try {
-    console.log('Starting beach import process...');
+    console.log('Starting remaining beaches import process...');
     
     // Read beach data from JSON file
     const dataPath = path.join(process.cwd(), 'data', 'beaches.json');
@@ -22,37 +22,22 @@ async function importBeaches() {
     const jsonData = fs.readFileSync(dataPath, 'utf-8');
     const beachData = JSON.parse(jsonData);
     
-    console.log(`Found ${beachData.length} beaches in JSON file. Beginning import...`);
+    console.log(`Found ${beachData.length} beaches in JSON file.`);
     
-    // Count existing beaches
-    const countResult = await db.select({ count: sql`count(*)` }).from(beaches);
-    const currentCount = Number(countResult[0].count);
-    console.log(`Current beach count in database: ${currentCount}`);
-    
-    // If we already have all beaches, we can skip
-    if (currentCount >= beachData.length) {
-      console.log(`Database already has all ${beachData.length} beaches. Skipping import.`);
-      return;
-    }
-    
-    // Force reimport if requested by the user
-    const forceReimport = process.env.FORCE_REIMPORT === 'true';
-    
-    // Get existing beach names to avoid duplicates
+    // Get existing beach names
     const existingBeaches = await db.select({ name: beaches.name }).from(beaches);
     const existingBeachNames = existingBeaches.map(b => b.name);
     console.log(`Found ${existingBeachNames.length} existing beaches to skip.`);
     
-    // Import each beach that doesn't already exist
-    let imported = 0;
-    let skipped = 0;
+    // Find beaches that are in JSON but not in database
+    const missingBeaches = beachData.filter(beach => !existingBeachNames.includes(beach.name));
+    console.log(`Found ${missingBeaches.length} missing beaches to import.`);
     
-    for (const beach of beachData) {
-      if (existingBeachNames.includes(beach.name)) {
-        skipped++;
-        continue;
-      }
-      
+    // Import each missing beach
+    let imported = 0;
+    let errors = 0;
+    
+    for (const beach of missingBeaches) {
       try {
         // Insert the beach using Drizzle ORM
         await db.insert(beaches).values({
@@ -60,7 +45,7 @@ async function importBeaches() {
           location: beach.location,
           province: beach.province,
           description: beach.description,
-          imageUrl: beach.imageUrl,
+          imageUrl: beach.imageUrl || '', // Use empty string if null
           rating: 1500,
           previousRating: 1500,
           previousRank: 0,
@@ -72,18 +57,15 @@ async function importBeaches() {
           hasFacilities: beach.hasFacilities || 0
         });
         
+        console.log(`Successfully imported ${beach.name}`);
         imported++;
-        
-        // Log progress periodically
-        if (imported % 10 === 0) {
-          console.log(`Imported ${imported} beaches so far...`);
-        }
       } catch (error) {
         console.error(`Error importing beach ${beach.name}:`, error);
+        errors++;
       }
     }
     
-    console.log(`Beach import completed. Imported ${imported} new beaches. Skipped ${skipped} existing beaches.`);
+    console.log(`Beach import completed. Imported ${imported} missing beaches. ${errors} errors.`);
     
     // Verify the final count
     const finalResult = await db.select({ count: sql`count(*)` }).from(beaches);
@@ -96,4 +78,4 @@ async function importBeaches() {
 }
 
 // Run the import
-importBeaches().catch(console.error);
+importRemainingBeaches().catch(console.error);
