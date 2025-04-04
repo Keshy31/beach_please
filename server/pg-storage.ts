@@ -193,19 +193,7 @@ export class PgStorage implements IStorage {
       await db.execute(previousRankQuery);
     }
     
-    // Always update the rank field for all beaches
-    if (rankCases.length > 0) {
-      const rankQuery = `
-        UPDATE beaches 
-        SET "rank" = 
-          CASE 
-            ${rankCases}
-          END
-        WHERE id IN (${idCases});
-      `;
-      
-      // Execute the rank update
-      await db.execute(rankQuery);
-    }
+    // We don't need to update a rank field as it's calculated dynamically
+    // and not stored in the database. We only store previousRank for comparison.
   }
 }
