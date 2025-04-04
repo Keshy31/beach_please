@@ -99,11 +99,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const limit = parseInt(req.query.limit as string) || 10;
       const recentVotes = await storage.getRecentVotes(limit);
       
+      // Get all beaches to find ranks
+      const rankedBeaches = await storage.getRankedBeaches();
+      const beachRanks = new Map<number, number>();
+      
+      // Create a map of beach IDs to current ranks
+      rankedBeaches.forEach((beach, index) => {
+        beachRanks.set(beach.id, index + 1);
+      });
+      
       // Enhance vote data with beach names, images, and rating changes
       const enhancedVotes = await Promise.all(
         recentVotes.map(async (vote) => {
           const winner = await storage.getBeachById(vote.winnerBeachId);
           const loser = await storage.getBeachById(vote.loserBeachId);
+          
+          // Calculate current ranks
+          const winnerCurrentRank = beachRanks.get(vote.winnerBeachId) || 0;
+          const loserCurrentRank = beachRanks.get(vote.loserBeachId) || 0;
           
           return {
             ...vote,
@@ -113,6 +126,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
             loserProvince: loser?.province || "Unknown Province",
             winnerImageUrl: winner?.imageUrl || "",
             loserImageUrl: loser?.imageUrl || "",
+            // Add rank information
+            winnerPreviousRank: winner?.previousRank || 0,
+            winnerCurrentRank,
+            loserPreviousRank: loser?.previousRank || 0,
+            loserCurrentRank
           };
         })
       );

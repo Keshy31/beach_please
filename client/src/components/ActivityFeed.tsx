@@ -22,6 +22,11 @@ interface EnhancedVote {
   loserPreviousRating?: number;
   winnerImageUrl?: string;
   loserImageUrl?: string;
+  // Add rank information
+  winnerPreviousRank?: number;
+  winnerCurrentRank?: number;
+  loserPreviousRank?: number;
+  loserCurrentRank?: number;
 }
 
 export default function ActivityFeed() {
@@ -121,7 +126,19 @@ export default function ActivityFeed() {
                             <Link href={`/beach/${vote.winnerBeachId}`}>
                               <h4 className="font-bold text-sm text-slate-800 hover:text-[hsl(var(--color-primary))] transition-colors duration-200">{vote.winnerName}</h4>
                             </Link>
-                            <p className="text-xs text-slate-500">{vote.winnerProvince}</p>
+                            <div className="flex items-center justify-between">
+                              <p className="text-xs text-slate-500">{vote.winnerProvince}</p>
+                              {vote.winnerPreviousRank && vote.winnerCurrentRank && (
+                                <p className="text-[10px] text-slate-400">
+                                  Rank: {vote.winnerCurrentRank} 
+                                  {vote.winnerPreviousRank !== vote.winnerCurrentRank && (
+                                    <span className="ml-1 text-emerald-500">
+                                      (was {vote.winnerPreviousRank})
+                                    </span>
+                                  )}
+                                </p>
+                              )}
+                            </div>
                           </div>
                           {vote.winnerRatingChange && (
                             <div className="flex items-center text-emerald-600 font-semibold text-sm">
@@ -154,7 +171,19 @@ export default function ActivityFeed() {
                             <Link href={`/beach/${vote.loserBeachId}`}>
                               <h4 className="font-medium text-sm text-slate-600 hover:text-[hsl(var(--color-primary))] transition-colors duration-200">{vote.loserName}</h4>
                             </Link>
-                            <p className="text-xs text-slate-400">{vote.loserProvince}</p>
+                            <div className="flex items-center justify-between">
+                              <p className="text-xs text-slate-400">{vote.loserProvince}</p>
+                              {vote.loserPreviousRank && vote.loserCurrentRank && (
+                                <p className="text-[10px] text-slate-400">
+                                  Rank: {vote.loserCurrentRank} 
+                                  {vote.loserPreviousRank !== vote.loserCurrentRank && (
+                                    <span className="ml-1 text-red-400">
+                                      (was {vote.loserPreviousRank})
+                                    </span>
+                                  )}
+                                </p>
+                              )}
+                            </div>
                           </div>
                           {vote.loserRatingChange && (
                             <div className="flex items-center text-red-500 font-semibold text-sm">
