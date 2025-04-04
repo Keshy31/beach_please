@@ -10,11 +10,23 @@ app.use(express.urlencoded({ extended: false }));
 // Initialize database if DATABASE_URL is set
 if (process.env.DATABASE_URL) {
   log("Using PostgreSQL database at: " + process.env.DATABASE_URL);
-  initializeDatabase().then(success => {
-    if (!success) {
-      log("Database initialization failed, application may not function correctly", "error");
+  
+  // Initialize database and import beaches
+  (async () => {
+    try {
+      const success = await initializeDatabase();
+      
+      if (!success) {
+        log("Database initialization failed, application may not function correctly", "error");
+      }
+      
+      // Import beaches after successful initialization or attempt import if initialization failed
+      log("Starting beach import process...");
+      await import('./import-beaches');
+    } catch (error) {
+      log("Error during database setup: " + error, "error");
     }
-  });
+  })();
 } else {
   log("Using SQLite database at: " + process.cwd() + "/data/beaches.sqlite");
 }
