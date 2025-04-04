@@ -1,10 +1,11 @@
-import { pgTable, text, serial, integer, timestamp, uuid } from "drizzle-orm/pg-core";
+import { sqliteTable, text, integer, primaryKey } from "drizzle-orm/sqlite-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
+import { sql } from "drizzle-orm";
 
 // Beach model
-export const beaches = pgTable("beaches", {
-  id: serial("id").primaryKey(),
+export const beaches = sqliteTable("beaches", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
   name: text("name").notNull(),
   location: text("location").notNull(),
   province: text("province").notNull(),
@@ -13,7 +14,7 @@ export const beaches = pgTable("beaches", {
   rating: integer("rating").notNull().default(1500), // ELO rating starts at 1500
   previousRating: integer("previous_rating"), // For tracking changes
   previousRank: integer("previous_rank"), // For tracking rank changes
-  // Beach features
+  // Beach features - using integer instead of boolean for compatibility
   isSwimming: integer("is_swimming").default(0), // 0 = unknown, 1 = true, 2 = false
   isSurfing: integer("is_surfing").default(0),
   isBlueFlag: integer("is_blue_flag").default(0),
@@ -30,11 +31,11 @@ export const insertBeachSchema = createInsertSchema(beaches).omit({
 });
 
 // Vote model
-export const votes = pgTable("votes", {
-  id: serial("id").primaryKey(),
+export const votes = sqliteTable("votes", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
   winnerBeachId: integer("winner_beach_id").notNull(),
   loserBeachId: integer("loser_beach_id").notNull(),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
+  createdAt: text("created_at").notNull().$defaultFn(() => new Date().toISOString()),
   voterName: text("voter_name").default("Anonymous"),
   winnerRatingChange: integer("winner_rating_change"),
   loserRatingChange: integer("loser_rating_change"),
