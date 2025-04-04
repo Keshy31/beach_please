@@ -123,7 +123,7 @@ export default function Home() {
               
               {/* VS Badge */}
               <div 
-                className="flex items-center justify-center h-16 w-16 rounded-full bg-ocean text-white text-xl font-bold shadow-lg z-10 animate-pulse"
+                className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 text-white text-xl font-bold shadow-xl border-2 border-white z-10 animate-pulse"
               >
                 VS
               </div>
