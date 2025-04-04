@@ -64,9 +64,11 @@ export class PgStorage implements IStorage {
   
   // Vote operations
   async recordVote(vote: InsertVote): Promise<Vote> {
-    // Get beaches
-    const winnerBeach = await this.getBeachById(vote.winnerBeachId);
-    const loserBeach = await this.getBeachById(vote.loserBeachId);
+    // Get beaches in a single query to reduce database calls
+    const [winnerBeach, loserBeach] = await Promise.all([
+      this.getBeachById(vote.winnerBeachId),
+      this.getBeachById(vote.loserBeachId)
+    ]);
     
     if (!winnerBeach || !loserBeach) {
       throw new Error("Invalid beach IDs in vote");
@@ -103,20 +105,24 @@ export class PgStorage implements IStorage {
       loserPreviousRating: loserPreviousRating,
     };
     
-    // Insert vote into database
-    const [newVote] = await db.insert(votes).values(voteData).returning();
-    
     // Update beach ratings
     winnerBeach.previousRating = winnerPreviousRating;
     loserBeach.previousRating = loserPreviousRating;
     winnerBeach.rating = newWinnerRating;
     loserBeach.rating = newLoserRating;
     
-    // Update beaches
-    await this.updateBeach(winnerBeach);
-    await this.updateBeach(loserBeach);
+    // Execute all database operations in parallel to improve performance
+    const [newVote] = await Promise.all([
+      // Insert vote
+      db.insert(votes).values(voteData).returning().then(result => result[0]),
+      
+      // Update beaches
+      this.updateBeach(winnerBeach),
+      this.updateBeach(loserBeach)
+    ]);
     
-    // Update rankings
+    // Now update rankings after the core vote is recorded
+    // This is moved after the promise.all to ensure the vote is recorded quickly
     await this.updateRankings();
     
     return newVote;
@@ -139,23 +145,24 @@ export class PgStorage implements IStorage {
   }
 
   async updateRankings(): Promise<void> {
+    // Get current ranked beaches
     const rankedBeaches = await this.getRankedBeaches();
     
-    // Update previous rank for each beach
+    // Update all beaches in a single loop
     for (let i = 0; i < rankedBeaches.length; i++) {
       const beach = rankedBeaches[i];
-      beach.previousRank = beach.previousRank || i + 1;
-      await this.updateBeach(beach);
-    }
-    
-    // Get fresh ranked list and update current ranks
-    const freshRankedBeaches = await this.getRankedBeaches();
-    
-    for (let i = 0; i < freshRankedBeaches.length; i++) {
-      const beach = freshRankedBeaches[i];
       const currentRank = i + 1;
-      const updatedBeach = { ...beach, previousRank: beach.previousRank || currentRank };
-      await this.updateBeach(updatedBeach);
+      
+      // Only update if rank changed or not set
+      if (!beach.previousRank || beach.previousRank !== currentRank) {
+        // Set previousRank only if it doesn't exist yet
+        if (!beach.previousRank) {
+          beach.previousRank = currentRank;
+        }
+        
+        // Update the beach
+        await this.updateBeach(beach);
+      }
     }
   }
 }
