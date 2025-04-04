@@ -31,7 +31,7 @@ const BeachGridCard = ({ beach }: { beach: Beach }) => {
 
   // Helper function to render feature icons
   const renderFeatureIcon = (feature: number | null | undefined, Icon: React.ElementType, label: string) => {
-    const featureValue = typeof feature === 'number' ? feature : 0;
+    const featureValue = feature || 0;
     return (
       <div className={`flex items-center ${featureValue === 1 ? "text-green-500" : featureValue === 2 ? "text-red-500" : "text-gray-300"}`} title={`${featureValue === 1 ? "Yes" : featureValue === 2 ? "No" : "Unknown"}: ${label}`}>
         <Icon className="h-4 w-4" />
@@ -69,7 +69,7 @@ const BeachGridCard = ({ beach }: { beach: Beach }) => {
         </Badge>
 
         {/* Blue Flag Badge (if applicable) */}
-        {typeof beach.isBlueFlag === 'number' && beach.isBlueFlag === 1 && (
+        {beach.isBlueFlag === 1 && (
           <Badge variant="secondary" className="absolute bottom-3 right-3 bg-blue-500 text-white border-none">
             <Award className="h-3.5 w-3.5 mr-1" /> Blue Flag Beach
           </Badge>
@@ -142,17 +142,17 @@ export default function Beaches() {
       
       switch (featureFilter) {
         case "swimming":
-          return typeof beach.isSwimming === 'number' && beach.isSwimming === 1;
+          return beach.isSwimming === 1;
         case "surfing":
-          return typeof beach.isSurfing === 'number' && beach.isSurfing === 1;
+          return beach.isSurfing === 1;
         case "fishing":
-          return typeof beach.isFishing === 'number' && beach.isFishing === 1;
+          return beach.isFishing === 1;
         case "blueflag":
-          return typeof beach.isBlueFlag === 'number' && beach.isBlueFlag === 1;
+          return beach.isBlueFlag === 1;
         case "lifeguards":
-          return typeof beach.hasLifeguards === 'number' && beach.hasLifeguards === 1;
+          return beach.hasLifeguards === 1;
         case "facilities":
-          return typeof beach.hasFacilities === 'number' && beach.hasFacilities === 1;
+          return beach.hasFacilities === 1;
         default:
           return true;
       }
