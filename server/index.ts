@@ -1,10 +1,23 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { initializeDatabase } from "./db-init";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Initialize database if DATABASE_URL is set
+if (process.env.DATABASE_URL) {
+  log("Using PostgreSQL database at: " + process.env.DATABASE_URL);
+  initializeDatabase().then(success => {
+    if (!success) {
+      log("Database initialization failed, application may not function correctly", "error");
+    }
+  });
+} else {
+  log("Using SQLite database at: " + process.cwd() + "/data/beaches.sqlite");
+}
 
 app.use((req, res, next) => {
   const start = Date.now();
